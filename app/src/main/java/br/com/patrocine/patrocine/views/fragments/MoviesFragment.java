@@ -35,7 +35,7 @@ public class MoviesFragment extends Fragment {
     private static final String TAG = MoviesFragment.class.getSimpleName();
 
     // url to fetch shopping items
-    private static final String URL = "https://api.patrocine.com.br/static/data/movies_example.json";
+    private static final String URL = "https://api.patrocine.com.br/static/data/moviesexample.json";
 
     private RecyclerView recyclerView;
     private List<Movie> itemsList;
