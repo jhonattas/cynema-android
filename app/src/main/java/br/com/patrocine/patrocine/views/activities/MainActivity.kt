@@ -1,20 +1,29 @@
-package br.com.patrocine.patrocine
+package br.com.patrocine.patrocine.views.activities
 
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
-import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import br.com.patrocine.patrocine.R
+import br.com.patrocine.patrocine.views.fragments.MapFragment
 import br.com.patrocine.patrocine.views.fragments.MoviesFragment
+import br.com.patrocine.patrocine.views.fragments.PromoFragment
+import br.com.patrocine.patrocine.views.fragments.SocialFragment
+import br.com.patrocine.patrocine.views.interfaces.OnFragmentInteractionListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener {
+
+    override fun onFragmentInteraction(uri: Uri?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +69,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        val fragmentManager = supportFragmentManager
         when (item.itemId) {
+
             R.id.nav_news -> {
-                Toast.makeText(this, "Promoções e Novidades", Toast.LENGTH_SHORT).show();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PromoFragment.newInstance("", ""))
+                        .commit()
             }
             R.id.nav_sessions -> {
-                Toast.makeText(this, "Em exibição", Toast.LENGTH_SHORT).show();
-                val fragmentManager = supportFragmentManager
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, MoviesFragment.newInstance("", ""))
                         .commit()
             }
             R.id.nav_contact -> {
-                Toast.makeText(this, "Redes Sociais", Toast.LENGTH_SHORT).show();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, SocialFragment.newInstance("", ""))
+                        .commit()
             }
             R.id.nav_map -> {
-                Toast.makeText(this, "Localizacao", Toast.LENGTH_SHORT).show();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, MapFragment.newInstance("", ""))
+                        .commit()
 
             }
             R.id.nav_share -> {
