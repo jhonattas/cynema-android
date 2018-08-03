@@ -3,11 +3,14 @@ package br.com.patrocine.patrocine
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import br.com.patrocine.patrocine.views.fragments.MoviesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -19,7 +22,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Compartilhamento nao disponivel", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
 
@@ -59,22 +62,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_news -> {
-                // Handle the camera action
+                Toast.makeText(this, "Promoções e Novidades", Toast.LENGTH_SHORT).show();
             }
             R.id.nav_sessions -> {
-
+                Toast.makeText(this, "Em exibição", Toast.LENGTH_SHORT).show();
+                val fragmentManager = supportFragmentManager
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, MoviesFragment.newInstance("", ""))
+                        .commit()
             }
             R.id.nav_contact -> {
-
+                Toast.makeText(this, "Redes Sociais", Toast.LENGTH_SHORT).show();
             }
             R.id.nav_map -> {
+                Toast.makeText(this, "Localizacao", Toast.LENGTH_SHORT).show();
 
             }
             R.id.nav_share -> {
-
+                Toast.makeText(this, "Compartilhamento", Toast.LENGTH_SHORT).show();
             }
             R.id.nav_send -> {
-
+                Toast.makeText(this, "Clicou em enviar", Toast.LENGTH_SHORT).show();
             }
         }
 
