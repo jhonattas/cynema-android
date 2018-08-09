@@ -10,54 +10,64 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
+import br.com.patrocine.patrocine.views.interfaces.OnMovieClickListener;
 
-/**
- * RecyclerView adapter class to render items
- * This class can go into another separate class, but for simplicity
- */
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
-    private Context context;
-    private List<Movie> movieList;
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+    public Context context;
+    private ArrayList<Movie> movieList;
+    private OnMovieClickListener listener;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, price;
-        public ImageView thumbnail;
+    public class MovieViewHolder extends RecyclerView.ViewHolder {
+        Movie movie;
+        private TextView name, duration;
+        private ImageView thumbnail;
+        private View mView;
 
-        public MyViewHolder(View view) {
+        public MovieViewHolder(View view) {
             super(view);
+            mView = view;
             name = view.findViewById(R.id.title);
-            price = view.findViewById(R.id.price);
+            duration = view.findViewById(R.id.duration);
             thumbnail = view.findViewById(R.id.thumbnail);
         }
     }
 
 
-    public MovieAdapter(Context context, List<Movie> movieList) {
+    public MovieAdapter(Context context, ArrayList<Movie> movieList, OnMovieClickListener listener) {
         this.context = context;
         this.movieList = movieList;
+        this.listener = listener;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.movie_item, parent, false);
-
-        return new MyViewHolder(itemView);
+    public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_item, parent, false);
+        return new MovieViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
-        final Movie movie = movieList.get(position);
-        holder.name.setText(movie.getTitle());
-        holder.price.setText(movie.getPrice());
+    public void onBindViewHolder(final MovieViewHolder holder, final int position) {
+        holder.movie = movieList.get(position);
+
+        holder.name.setText(holder.movie.getTitle());
+        String description = holder.movie.getDuration() + " minutos | " + holder.movie.getGenre();
+        holder.duration.setText(description);
 
         Glide.with(context)
-                .load(movie.getImage())
+                .load(holder.movie.getImage())
                 .into(holder.thumbnail);
+
+        holder.mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onMovieClick(holder.movie);
+            }
+        });
     }
 
     @Override

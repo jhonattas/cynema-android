@@ -39,7 +39,7 @@
                 android:textSize="11dp" />
 
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"

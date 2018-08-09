@@ -11,15 +11,21 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import br.com.patrocine.patrocine.R
+import br.com.patrocine.patrocine.model.Movie
 import br.com.patrocine.patrocine.views.fragments.MapFragment
 import br.com.patrocine.patrocine.views.fragments.MoviesFragment
 import br.com.patrocine.patrocine.views.fragments.PromoFragment
 import br.com.patrocine.patrocine.views.fragments.SocialFragment
 import br.com.patrocine.patrocine.views.interfaces.OnFragmentInteractionListener
+import br.com.patrocine.patrocine.views.interfaces.OnMovieClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, OnFragmentInteractionListener, OnMovieClickListener {
+
+    override fun onMovieClick(movie: Movie) {
+        Toast.makeText(this, "cliquei no item" + movie.title, Toast.LENGTH_SHORT).show();
+    }
 
     override fun onFragmentInteraction(uri: Uri?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

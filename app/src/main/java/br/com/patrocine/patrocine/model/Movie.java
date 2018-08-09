@@ -1,9 +1,15 @@
 package br.com.patrocine.patrocine.model;
 
 public class Movie {
+
     String title;
+    String fullTitle;
+    int id;
+    long duration;
+    String genre;
+    String censorship;
     String image;
-    String price;
+    String trailer;
 
     public String getTitle() {
         return title;
@@ -21,11 +27,51 @@ public class Movie {
         this.image = image;
     }
 
-    public String getPrice() {
-        return price;
+    public long getDuration() {
+        return duration;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public String getFullTitle() {
+        return fullTitle;
+    }
+
+    public void setFullTitle(String fullTitle) {
+        this.fullTitle = fullTitle;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getCensorship() {
+        return censorship;
+    }
+
+    public void setCensorship(String censorship) {
+        this.censorship = censorship;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
     }
 }
