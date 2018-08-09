@@ -1,11 +1,11 @@
 package br.com.patrocine.patrocine.views.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
 import br.com.patrocine.patrocine.R;
-import java.lang.Runnable;
 
 public class SplashScreenActivity extends AppCompatActivity implements Runnable {
 
