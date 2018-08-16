@@ -1,15 +1,40 @@
 package br.com.patrocine.patrocine.model;
 
-public class Movie {
+import com.google.gson.annotations.SerializedName;
 
-    String title;
-    String fullTitle;
-    int id;
-    long duration;
-    String genre;
-    String censorship;
-    String image;
-    String trailer;
+import java.io.Serializable;
+
+public class Movie implements Serializable {
+
+    @SerializedName("id")
+    private int id;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("fullTitle")
+    private String fullTitle;
+    @SerializedName("sinopse")
+    private String sinopse;
+    @SerializedName("duration")
+    private int duration;
+    @SerializedName("genre")
+    private String genre;
+    @SerializedName("censorship")
+    private String censorship;
+    @SerializedName("image")
+    private String image;
+    @SerializedName("trailer")
+    private String trailer;
+
+    public Movie(){
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -17,22 +42,6 @@ public class Movie {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(long duration) {
-        this.duration = duration;
     }
 
     public String getFullTitle() {
@@ -43,12 +52,20 @@ public class Movie {
         this.fullTitle = fullTitle;
     }
 
-    public int getId() {
-        return id;
+    public String getSinopse() {
+        return sinopse;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public String getGenre() {
@@ -65,6 +82,14 @@ public class Movie {
 
     public void setCensorship(String censorship) {
         this.censorship = censorship;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTrailer() {

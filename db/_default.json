@@ -1,0 +1,11 @@
+{
+  "code"          : 0 ,
+  "preview"       : "https://image",
+  "category"      : "pizza",
+  "title"         : "pizza",
+  "ingredients"   : "one, two",
+  "price"         : 0.0,
+  "status"        : 0,
+  "active"        : true,
+  "available"     : true
+}

@@ -1,48 +1,78 @@
 apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
+
     defaultConfig {
+
         applicationId "br.com.patrocine.patrocine"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 2
-        versionName "1.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 10
+        versionName "1.0.5"
+        buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
+        buildConfigField("String", "img_server", "\"https://api.patrocine.com.br/static/\"")
+
     }
+
+    flavorDimensions "default"
+
+    productFlavors {
+
+        soucriador {
+            applicationId "br.com.patrocine.patrocine"
+            dimension "default"
+            buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
+            resValue("string", "app_name", "Patrocine")
+            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Sessoes\", \"Mapa\", \"Contato\"}")
+            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Sessoes\"}, {\"2\", \"Mapa\"}, {\"3\", \"Contato\"} }")
+            resValue "string", "hotsite", "www.patrocine.com.br"
+            resValue "string", "fonefixo", "1"
+            resValue "string", "fonefixoddd", "1"
+            resValue "string", "whatsapp", "1"
+            resValue "string", "whatsappddd", "1"
+            resValue "string", "endereco", "1"
+            resValue "string", "geoLocation", "1"
+        }
+
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            resValue("string", "admob_id", "ca-app-pub-6877082630703793~7971765033")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            resValue("string", "admob_id", "ca-app-pub-3940256099942544/6300978111")
+        }
     }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0-beta01'
-    implementation 'com.android.support:design:28.0.0-beta01'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:support-v4:28.0.0-beta01'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
 
-    // RecyclerView
-    implementation 'com.android.support:recyclerview-v7:28.0.0-beta01'
-
-    // CardView
-    implementation 'com.android.support:cardview-v7:28.0.0-beta01'
+    // retrofit, gson, picasso
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     // volley http library
-    implementation 'com.android.volley:volley:1.0.0'
-    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
 
     // glide image library
     implementation 'com.github.bumptech.glide:glide:4.3.1'
+    implementation 'com.android.support:design:27.1.1'
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
 }

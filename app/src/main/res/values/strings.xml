@@ -1,18 +1,52 @@
 <resources>
-    <string name="app_name">PatroCine</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_section1">Seção 1</string>
+    <string name="title_section2">Seção 2</string>
+    <string name="title_section3">Seção 3</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_sessions">Sessões</string>
-    <string name="menu_map">Mapa</string>
-    <string name="menu_contact">Contato</string>
-    <string name="menu_news">Novidades</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="action_example">Ação Exemplo</string>
+
+    <string name="action_settings">Ajustes</string>
+
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- Sou Criador -->
+    <string name="soucriador">Sou Criador</string>
+    <string name="quote">ORGULHOSAMENTE CRIADO E MANTIDO POR</string>
+    <!-- cardapio -->
+    <string name="promotions">Promoções</string>
+    <string name="menu">Cardápio</string>
+    <string name="pizza">Pizza</string>
+    <string name="pizzas">Pizzas</string>
+
+    <string name="contact">Contato</string>
+    <string name="drinks">Bebidas</string>
+    <string name="about">sobre</string>
+    <string name="title_activity_about">AboutActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_product_detail">ProductDetailActivity</string>
+
+
+    <!-- content -->
+    <string name="not_available">Não Disponivel</string>
+    <string name="ingredientes">ingredientes</string>
+    <string name="price">preço</string>
+    <string name="title">titulo</string>
+    <string name="ingredients">ingredientes</string>
+
+    <string name="price_mini">04 PEDAÇOS | Mini</string>
+    <string name="price_grande">08 PEDAÇOS | Grande</string>
+    <string name="price_big">12 PEDAÇOS | Big</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="call">ligar no fixo</string>
     <string name="title_activity_movie_details">MovieDetailsActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -103,4 +137,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
 </resources>

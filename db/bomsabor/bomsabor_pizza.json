@@ -1,0 +1,403 @@
+[
+  {
+    "code"          : 1,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "À GREGA",
+    "ingredients"   : "presunto, palmito, pimentão ervilha e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 2,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "ALHO",
+    "ingredients"   : "Mussarela, alho e tomate",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 3,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "AMERICANA",
+    "ingredients"   : "Presunto, ovo, bacon e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 4,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "ATUM",
+    "ingredients"   : "Atum, requeijão e mussarela",
+    "price"         : 32.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 5,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BAIANA",
+    "ingredients"   : "Calabresa moída, pimenta, ovo e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 6,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BRÓCOLIS COM REQUEIJÃO",
+    "ingredients"   : "Brocólis, requeijão e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 7,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CAIPIRA",
+    "ingredients"   : "Peito de frango, cebola, milho e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 8,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CALABRESA",
+    "ingredients"   : "Calabresa, cebola e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 9,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CALABRESA COM REQUEIJÃO",
+    "ingredients"   : "Calabresa, requeijão e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 10,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CARNE SECA",
+    "ingredients"   : "Carne seca desfiada, cebola, requeijão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 11,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CATUPERU",
+    "ingredients"   : "Peito de Peru, requeijão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 12,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "CREME DE MILHO",
+    "ingredients"   : "Milho, creme de leite e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 13,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "ESCAROLA GOURMET",
+    "ingredients"   : "Escarola, bacon, alho, requeijão e mussarela",
+    "price"         : 32.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 14,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "ESPANHOLA",
+    "ingredients"   : "Peito de peru, bacon, tomate em rodelas e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 15,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "FRANGO COM REQUEIJÃO",
+    "ingredients"   : "Peito de frango, bacon, milho, requeijão e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 16,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "FRANGO ESPECIAL",
+    "ingredients"   : "Peito de Frango, bacon, milho e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 17,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "LOMBINHO COM CEBOLA",
+    "ingredients"   : "Lombo defumado, cebola e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 18,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "LOMBO COM REQUEIJÃO",
+    "ingredients"   : "Lombo defumado, requeijão e mussarela",
+    "price"         : 32.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 19,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "MARGUERITA",
+    "ingredients"   : "Manjericão, tomate, parmesão e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 20,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "MILHO COM REQUEIJÃO",
+    "ingredients"   : "Milho, requeijão e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 21,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "MUSSARELA",
+    "ingredients"   : "Mussarela e tomate",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 22,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "NAPOLITANA",
+    "ingredients"   : "Parmesão, tomate, alho e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 23,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PALMITO",
+    "ingredients"   : "Palmito e mussarela",
+    "price"         : 32.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 24,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PALMITO COM REQUEIJÃO",
+    "ingredients"   : "Palmito, requeijão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 25,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PORTUGUESA COM MILHO",
+    "ingredients"   : "Presunto, ovo, ervilha, milho, cebola e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 26,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PORTUGUESA COM PALMITO",
+    "ingredients"   : "Presunto, palmito, ovo, ervilha, cebola e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 27,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PRESUNTO",
+    "ingredients"   : "Presunto, tomate e mussarela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 28,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PRESUNTO COM REQUEIJÃO",
+    "ingredients"   : "Presunto, requeijão e mussarela",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 29,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "QUATRO QUEIJOS",
+    "ingredients"   : "Requeijão, gorgonzola, provolone e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 30,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "RÚCULA",
+    "ingredients"   : "Rúcula, calabresa, cebola, parmesão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 31,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "SICILIANA",
+    "ingredients"   : "Champignon, bacon, tomate e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 32,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "TOMATELA",
+    "ingredients"   : "Tomate seco, parmesão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 33,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BACON",
+    "ingredients"   : "Bacon, tomate, cebola e mussarela",
+    "price"         : 32.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 34,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "VEGETARIANA",
+    "ingredients"   : "Champignon, palmito, tomate, rúcula, cebola e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 35,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "VEGETARIANA ESPECIAL",
+    "ingredients"   : "Escarola, brócolis, palmito, tomate, cebola e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 36,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BRÓCOLIS COM BACON",
+    "ingredients"   : "Brócolis, bacon, alho frito, requeijão e mussarela",
+    "price"         : 35.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 37,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PICANHA DA CASA",
+    "ingredients"   : "Picanha grelhada, vinagrete e mussarela",
+    "price"         : 38.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 38,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BANANA",
+    "ingredients"   : "Banana, açucar e canela",
+    "price"         : 28.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 39,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "BRIGADEIRO",
+    "ingredients"   : "Chocolate ao leite e granulado",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+  }, {
+    "code"          : 40,
+    "preview"       : "https://image",
+    "category"      : "pizza",
+    "title"         : "PRESTÍGIO",
+    "ingredients"   : "Chocolate e coco ralado",
+    "price"         : 30.00,
+    "status"        : 0,
+    "active"        : true,
+    "available"     : true
+}
+]

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "137822876486",
+    "firebase_url": "https://patrocine-56aa2.firebaseio.com",
+    "project_id": "patrocine-56aa2",
+    "storage_bucket": "patrocine-56aa2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137822876486:android:99453e83c922c47b",
+        "android_client_info": {
+          "package_name": "br.com.patrocine.patrocine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137822876486-va2j625iaruc888ubnpogojc3iea40od.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU17E7-369zqi1Ail9KF0LdxRDQURKJ9Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,4 +9,8 @@
     <color name="secondaryDarkColor">#7F0000</color>
     <color name="primaryTextColor">#FFFFFF</color>
     <color name="secondaryTextColor">#FFFFFF</color>
+
+    <color name="gray">#333333</color>
+    <color name="backkground">#f1f5f7</color>
+
 </resources>
