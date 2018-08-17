@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 11
-        versionName "1.0.6"
+        versionName "1.0.7"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
         buildConfigField("String", "img_server", "\"https://api.patrocine.com.br/static/\"")
 

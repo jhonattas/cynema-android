@@ -41,8 +41,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.movie = movieList.get(position);
 
         holder.name.setText(holder.movie.getFullTitle());
-        String description = holder.movie.getDuration() + " minutos | " + holder.movie.getGenre();
-        holder.duration.setText(description);
 
         Glide.with(context)
                 .load(holder.movie.getImage())
@@ -65,7 +63,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         Movie movie;
-        private TextView name, duration;
+        private TextView name;
         private ImageView thumbnail;
         private View mView;
         private CardView cardView;
@@ -75,7 +73,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             mView = view;
             cardView = mView.findViewById(R.id.card_view);
             name = view.findViewById(R.id.title);
-            duration = view.findViewById(R.id.duration);
             thumbnail = view.findViewById(R.id.thumbnail);
         }
     }

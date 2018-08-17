@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,(DrawerLayout) findViewById(R.id.drawer_layout));
 
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, MovieFragment.newInstance("", ""))
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MovieFragment.newInstance())
                 .commit();
 
         onCreateComponents();

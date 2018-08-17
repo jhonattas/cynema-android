@@ -1,22 +1,15 @@
 package br.com.patrocine.patrocine.ui.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
-
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 
@@ -59,7 +52,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         setTitle(movie.getFullTitle());
 
         Glide.with(this)
-                .load(movie.getImage())
+                .load(movie.getImage_mini())
                 .into(movieSlider);
 
     }

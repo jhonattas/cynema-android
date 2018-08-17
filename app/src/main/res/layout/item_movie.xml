@@ -37,19 +37,8 @@
                 android:paddingRight="@dimen/card_title_padding"
                 android:paddingTop="@dimen/card_title_padding"
                 android:textColor="#111"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:textAlignment="center"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/duration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:paddingBottom="@dimen/card_price_padding_bottom"
-                android:textColor="@color/secondaryColor"
                 android:textSize="11sp" />
 
         </RelativeLayout>

@@ -23,6 +23,8 @@ public class Movie implements Serializable {
     private String censorship;
     @SerializedName("image")
     private String image;
+    @SerializedName("image_mini")
+    private String image_mini;
     @SerializedName("slide01")
     private String slide01;
     @SerializedName("slide02")
@@ -99,6 +101,14 @@ public class Movie implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getImage_mini() {
+        return image_mini;
+    }
+
+    public void setImage_mini(String image_mini) {
+        this.image_mini = image_mini;
     }
 
     public String getSlide01() {
