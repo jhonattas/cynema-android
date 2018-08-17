@@ -3,6 +3,7 @@ package br.com.patrocine.patrocine.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Movie implements Serializable {
 
@@ -24,6 +25,8 @@ public class Movie implements Serializable {
     private String image;
     @SerializedName("trailer")
     private String trailer;
+    @SerializedName("grid")
+    private ArrayList<Location> grid;
 
     public Movie(){
     }
@@ -98,5 +101,13 @@ public class Movie implements Serializable {
 
     public void setTrailer(String trailer) {
         this.trailer = trailer;
+    }
+
+    public ArrayList<Location> getGrid() {
+        return grid;
+    }
+
+    public void setGrid(ArrayList<Location> grid) {
+        this.grid = grid;
     }
 }
