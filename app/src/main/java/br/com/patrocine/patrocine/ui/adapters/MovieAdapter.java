@@ -72,8 +72,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             super(view);
             mView = view;
             cardView = mView.findViewById(R.id.card_view);
-            name = view.findViewById(R.id.title);
-            thumbnail = view.findViewById(R.id.thumbnail);
+            name = mView.findViewById(R.id.title);
+            thumbnail = mView.findViewById(R.id.thumbnail);
         }
     }
 }

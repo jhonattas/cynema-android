@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
+import br.com.patrocine.patrocine.ui.adapters.SessionAdapter;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
@@ -19,12 +22,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private TextView tvMovieSinopse;
     private Toolbar toolbar;
     private ImageView movieSlider;
+    private RecyclerView sessions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
         toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -48,6 +53,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieSlider = findViewById(R.id.movieSlider);
         tvMovieSinopse = findViewById(R.id.movie_sinopse);
         tvMovieSinopse.setText(movie.getSinopse());
+        sessions = findViewById(R.id.rcSessions);
+
 
         setTitle(movie.getFullTitle());
 
@@ -55,10 +62,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 .load(movie.getImage_mini())
                 .into(movieSlider);
 
+        String[] testing = {"one","two","three"};
+        SessionAdapter sessionAdapter = new SessionAdapter(testing);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        sessions.setLayoutManager(layoutManager);
+        sessions.setAdapter(sessionAdapter);
+
     }
 
-    void watch_video(String url)
-    {
+    void watch_video(String url) {
         Intent yt_play = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         Intent chooser = Intent.createChooser(yt_play , "Open With");
 

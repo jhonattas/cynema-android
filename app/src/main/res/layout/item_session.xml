@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/sessionBox"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+        android:padding="5dp"
+        android:id="@+id/tvSessionDay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/primaryColor"
+        android:text="17 de agosto"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_marginBottom="2dp"/>
+
+    <TextView
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:id="@+id/tvSessionLocationName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Sala 01"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:id="@+id/sessionHour"
+            android:text="11:11"
+            android:textColor="#FFFFFF"
+            android:background="#f87d23"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:id="@+id/sessionCategory"
+            android:text="2D"
+            android:textColor="#FFFFFF"
+            android:background="#766aa4"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:id="@+id/sessionLanguage"
+            android:textColor="#333333"
+            android:background="#c7c7c7"
+            android:textStyle="bold"
+            android:text="dub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
