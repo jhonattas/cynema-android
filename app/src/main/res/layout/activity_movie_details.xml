@@ -25,6 +25,15 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
+            <ImageView
+                android:id="@+id/movieSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+                />
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"

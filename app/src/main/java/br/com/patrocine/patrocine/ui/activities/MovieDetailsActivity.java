@@ -10,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -24,7 +25,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private Movie movie;
     private TextView tvMovieSinopse;
     private Toolbar toolbar;
-    private AppBarLayout appBarLayout;
+    private ImageView movieSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +52,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     void onCreateComponents(){
-        appBarLayout = findViewById(R.id.app_bar);
+        movieSlider = findViewById(R.id.movieSlider);
         tvMovieSinopse = findViewById(R.id.movie_sinopse);
         tvMovieSinopse.setText(movie.getSinopse());
 
         setTitle(movie.getFullTitle());
 
-        Glide.with(this).load(movie.getSlide01()).into(new SimpleTarget<Drawable>() {
-            @Override
-            public void onResourceReady(Drawable resource, Transition transition) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    appBarLayout.setBackground(resource);
-                }
-            }
-        });
+        Glide.with(this)
+                .load(movie.getImage())
+                .into(movieSlider);
 
     }
 

@@ -2,9 +2,10 @@ package br.com.patrocine.patrocine.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Location {
+public class Location implements Serializable {
 
     @SerializedName("id")
     private int id;
