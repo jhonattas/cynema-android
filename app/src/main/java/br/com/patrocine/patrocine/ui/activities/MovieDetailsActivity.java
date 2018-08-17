@@ -55,15 +55,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvMovieSinopse.setText(movie.getSinopse());
         sessions = findViewById(R.id.rcSessions);
 
-
         setTitle(movie.getFullTitle());
 
+        // monta a imagem de destaque do filme no topo da tela
         Glide.with(this)
                 .load(movie.getImage_mini())
                 .into(movieSlider);
 
-        String[] testing = {"one","two","three"};
-        SessionAdapter sessionAdapter = new SessionAdapter(testing);
+        SessionAdapter sessionAdapter = new SessionAdapter(movie.getGrid());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         sessions.setLayoutManager(layoutManager);

@@ -34,7 +34,7 @@ public class Movie implements Serializable {
     @SerializedName("trailer")
     private String trailer;
     @SerializedName("grid")
-    private ArrayList<Location> grid;
+    private ArrayList<Grid> grid;
 
     public Movie(){
     }
@@ -143,11 +143,11 @@ public class Movie implements Serializable {
         this.trailer = trailer;
     }
 
-    public ArrayList<Location> getGrid() {
+    public ArrayList<Grid> getGrid() {
         return grid;
     }
 
-    public void setGrid(ArrayList<Location> grid) {
+    public void setGrid(ArrayList<Grid> grid) {
         this.grid = grid;
     }
 }
