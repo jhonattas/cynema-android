@@ -23,6 +23,12 @@ public class Movie implements Serializable {
     private String censorship;
     @SerializedName("image")
     private String image;
+    @SerializedName("slide01")
+    private String slide01;
+    @SerializedName("slide02")
+    private String slide02;
+    @SerializedName("slide03")
+    private String slide03;
     @SerializedName("trailer")
     private String trailer;
     @SerializedName("grid")
@@ -93,6 +99,30 @@ public class Movie implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getSlide01() {
+        return slide01;
+    }
+
+    public void setSlide01(String slide01) {
+        this.slide01 = slide01;
+    }
+
+    public String getSlide02() {
+        return slide02;
+    }
+
+    public void setSlide02(String slide02) {
+        this.slide02 = slide02;
+    }
+
+    public String getSlide03() {
+        return slide03;
+    }
+
+    public void setSlide03(String slide03) {
+        this.slide03 = slide03;
     }
 
     public String getTrailer() {

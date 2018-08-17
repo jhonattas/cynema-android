@@ -38,23 +38,26 @@ android {
 
     }
 
+    signingConfigs {
+        main {
+            storeFile file("keyz/patrocine.jks")
+            storePassword "#Jhoouh366"
+            keyAlias = 'key0'
+            keyPassword "#Jhoouh366"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             resValue("string", "admob_id", "ca-app-pub-6877082630703793~7971765033")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.main
         }
 
         debug {
+            signingConfig signingConfigs.main
             resValue("string", "admob_id", "ca-app-pub-3940256099942544/6300978111")
-        }
-    }
-    signingConfigs {
-        patrocine {
-            storeFile file('keys/patrocine.jks')
-            storePassword System.getenv('#Jhoouh366')
-            keyAlias = 'key0'
-            keyPassword System.getenv('#Jhoouh366')
         }
     }
 
