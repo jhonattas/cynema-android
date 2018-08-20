@@ -13,4 +13,8 @@
     <color name="gray">#333333</color>
     <color name="backkground">#f1f5f7</color>
 
+    <color name="sessionStart">#f87d23</color>
+    <color name="sessionCategory">#766aa4</color>
+    <color name="sessionLanguage">#c7c7c7</color>
+
 </resources>

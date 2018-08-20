@@ -1,64 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/locationBox"
-        android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/locationBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="90dp"
+    android:padding="2.5dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvLocationName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Sala 01"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-        <TextView
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:padding="5dp"
-            android:id="@+id/tvLocationName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Sala 01"/>
-
-        <LinearLayout
-            android:id="@+id/locationButtons"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <Button
-                android:layout_marginLeft="2.5dp"
-                android:layout_marginRight="2.5dp"
-                android:id="@+id/locationStart"
-                android:text="11:11"
-                android:textColor="#FFFFFF"
-                android:background="#f87d23"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:layout_marginLeft="2.5dp"
-                android:layout_marginRight="2.5dp"
-                android:id="@+id/locationCategory"
-                android:text="2D"
-                android:textColor="#FFFFFF"
-                android:background="#766aa4"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:layout_marginLeft="2.5dp"
-                android:layout_marginRight="2.5dp"
-                android:id="@+id/locationLanguage"
-                android:textColor="#333333"
-                android:background="#c7c7c7"
-                android:textStyle="bold"
-                android:text="dub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/locationButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
 
 </LinearLayout>
 

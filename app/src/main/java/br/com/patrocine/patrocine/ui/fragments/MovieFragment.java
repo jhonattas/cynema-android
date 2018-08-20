@@ -145,15 +145,4 @@ public class MovieFragment extends Fragment {
         });
     }
 
-    void updateList(){
-        // Set the adapter
-        recyclerView = getView().findViewById(R.id.card_recycler_view);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llm);
-
-        mAdapter = new MovieAdapter(getContext(), MOVIES, mListener);
-        recyclerView.setAdapter(mAdapter);
-    }
-
 }
