@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                 //mTitle = getString(R.string.promotions);
                 break;
             case 2:
-                //mTitle = getString(R.string.pizzas);
+                mTitle = getString(R.string.contact);
                 break;
             case 3:
+                mTitle = getString(R.string.map);
                 break;
             case 4:
                 closeApp();
-                //mTitle = getString(R.string.contact);
                 break;
         }
     }
@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.closeApp();
     }
 
     void closeApp(){
