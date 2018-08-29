@@ -5,10 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.MapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_margin="20dp"
+            android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logoPatrocine"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:id="@+id/endereco"
+            android:layout_margin="20dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_below="@id/logoPatrocine"
+            android:text="@string/endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/openMaps"
+            android:text="@string/open_in_map"
+            android:layout_below="@+id/endereco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 
 </FrameLayout>

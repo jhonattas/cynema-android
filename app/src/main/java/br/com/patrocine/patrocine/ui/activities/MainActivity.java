@@ -17,8 +17,12 @@ import com.google.android.gms.ads.MobileAds;
 import br.com.patrocine.patrocine.BuildConfig;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
+import br.com.patrocine.patrocine.ui.fragments.BomboniereFragment;
+import br.com.patrocine.patrocine.ui.fragments.FaqFragment;
+import br.com.patrocine.patrocine.ui.fragments.MapFragment;
 import br.com.patrocine.patrocine.ui.fragments.MovieFragment;
 import br.com.patrocine.patrocine.ui.fragments.NavigationDrawerFragment;
+import br.com.patrocine.patrocine.ui.fragments.TicketsFragment;
 import br.com.patrocine.patrocine.ui.interfaces.NavigationDrawerCallbacks;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
 
@@ -40,11 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         mTitle = getTitle();
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,(DrawerLayout) findViewById(R.id.drawer_layout));
 
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.container, MovieFragment.newInstance())
-                .commit();
+        openMovies();
 
         onCreateComponents();
     }
@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                //mTitle = getString(R.string.promotions);
+                openMovies();
                 break;
             case 2:
-                mTitle = getString(R.string.contact);
+                openTickets();
                 break;
             case 3:
-                mTitle = getString(R.string.map);
+                openLocation();
                 break;
             case 4:
                 closeApp();
@@ -128,5 +128,46 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage(R.string.confirm_exit).setPositiveButton(android.R.string.yes, dialogClickListener)
                 .setNegativeButton(android.R.string.no, dialogClickListener).show();
+    }
+
+    void openMovies(){
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MovieFragment.newInstance())
+                .commit();
+    }
+
+    void openTickets(){
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, TicketsFragment.newInstance())
+                .commit();
+    }
+
+    void openBomboniere(){
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, BomboniereFragment.newInstance())
+                .commit();
+    }
+
+    void openFaq(){
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, FaqFragment.newInstance())
+                .commit();
+    }
+
+    void openLocation(){
+        setTitle(R.string.map);
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MapFragment.newInstance())
+                .commit();
     }
 }
