@@ -25,15 +25,15 @@ android {
             dimension "default"
             buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
             resValue("string", "app_name", "Patrocine")
-            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Contato\"}")
-            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Contato\"} }")
+            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Contato\", \"Mapa\", \"Sair\"}")
+            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Contato\"}, {\"2\", \"Mapa\"}, {\"3\", \"Sair\"} }")
             resValue "string", "hotsite", "www.patrocine.com.br"
-            resValue "string", "fonefixo", "1"
-            resValue "string", "fonefixoddd", "1"
+            resValue "string", "fonefixo", "3199-0422"
+            resValue "string", "fonefixoddd", "34"
             resValue "string", "whatsapp", "1"
             resValue "string", "whatsappddd", "1"
-            resValue "string", "endereco", "1"
-            resValue "string", "geoLocation", "1"
+            resValue "string", "endereco", "Av. João Alves do Nascimento, 2264 - Centro, Patrocínio - MG"
+            resValue "string", "geoLocation", "-18.935881,-46.9924737"
         }
 
     }

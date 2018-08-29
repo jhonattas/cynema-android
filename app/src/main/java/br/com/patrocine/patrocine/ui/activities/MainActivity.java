@@ -1,6 +1,8 @@
 package br.com.patrocine.patrocine.ui.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.FragmentManager;
@@ -28,8 +30,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     String currentOption = "";
     FragmentManager fragmentManager = getSupportFragmentManager();
     AdView mAdView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                 //mTitle = getString(R.string.pizzas);
                 break;
             case 3:
-                //mTitle = getString(R.string.drinks);
                 break;
             case 4:
+                closeApp();
                 //mTitle = getString(R.string.contact);
                 break;
         }
@@ -103,5 +103,25 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+    }
+
+    void closeApp(){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        MainActivity.this.finish();
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage(R.string.confirm_exit).setPositiveButton(android.R.string.yes, dialogClickListener)
+                .setNegativeButton(android.R.string.no, dialogClickListener).show();
     }
 }

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -28,14 +27,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MovieFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MovieFragment extends Fragment {
     private static final String CLASS_NAME = MovieFragment.class.getSimpleName();
 
@@ -49,7 +40,6 @@ public class MovieFragment extends Fragment {
     private ArrayList<Movie> MOVIES = new ArrayList<>();
 
     public MovieFragment() {
-        // Required empty public constructor
     }
 
     public static MovieFragment newInstance() {
@@ -97,8 +87,7 @@ public class MovieFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -123,23 +112,16 @@ public class MovieFragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<Movie>> call, Response<ArrayList<Movie>> response) {
                 if(response.body() != null) {
-                    Toast.makeText(getContext(), "Atualizado com sucesso", Toast.LENGTH_SHORT).show();
                     MOVIES = response.body();
-
-                    Log.e(CLASS_NAME, MOVIES.toString());
-
                     itemsList.clear();
                     itemsList.addAll(MOVIES);
-
-                    // refreshing recycler view
                     mAdapter.notifyDataSetChanged();
-
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<Movie>> call, Throwable t) {
-                Toast.makeText(getContext(), "Problema ao atualizar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.failed_connection, Toast.LENGTH_SHORT).show();
                 Log.e(CLASS_NAME, t.getLocalizedMessage());
             }
         });

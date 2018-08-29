@@ -1,5 +1,8 @@
 <resources>
     <string name="title_activity_main">MainActivity</string>
+    <string name="failed_connection">Não foi possível carregar filmes </string>
+    <string name="confirm_exit">Deseja encerrar o aplicativo Patrocine?</string>
+    <string name="exit">Sair</string>
 
     <string name="title_section1">Seção 1</string>
     <string name="title_section2">Seção 2</string>
