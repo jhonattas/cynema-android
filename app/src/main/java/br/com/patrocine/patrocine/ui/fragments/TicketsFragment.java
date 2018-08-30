@@ -15,8 +15,6 @@ import br.com.patrocine.patrocine.R;
 public class TicketsFragment extends Fragment {
 
     View view;
-    WebView webView;
-    WebSettings webSettings;
 
     public TicketsFragment() {
     }
@@ -34,10 +32,10 @@ public class TicketsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_tickets, container, false);
 
-        String url = "https://clear.patrocine.com.br/ingressos";
-        webView = view.findViewById(R.id.webviewTickets);
+        String url = "https://clear.patrocine.com.br/bomboniere";
+        WebView webView = view.findViewById(R.id.webviewTickets);
         webView.clearCache(true);
-        webSettings = webView.getSettings();
+        WebSettings webSettings = webView.getSettings();
         webView.setWebViewClient(new WebViewClient());
 
         webSettings.setJavaScriptEnabled(true);

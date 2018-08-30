@@ -17,11 +17,10 @@ import com.google.android.gms.ads.MobileAds;
 import br.com.patrocine.patrocine.BuildConfig;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
-import br.com.patrocine.patrocine.ui.fragments.BomboniereFragment;
-import br.com.patrocine.patrocine.ui.fragments.FaqFragment;
 import br.com.patrocine.patrocine.ui.fragments.MapFragment;
 import br.com.patrocine.patrocine.ui.fragments.MovieFragment;
 import br.com.patrocine.patrocine.ui.fragments.NavigationDrawerFragment;
+import br.com.patrocine.patrocine.ui.fragments.OnlineFragment;
 import br.com.patrocine.patrocine.ui.fragments.TicketsFragment;
 import br.com.patrocine.patrocine.ui.interfaces.NavigationDrawerCallbacks;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
@@ -72,9 +71,15 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                 openTickets();
                 break;
             case 3:
-                openLocation();
+                openBomboniere();
                 break;
             case 4:
+                openFaq();
+                break;
+            case 5:
+                openLocation();
+                break;
+            case 6:
                 closeApp();
                 break;
         }
@@ -142,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         fragmentManager = getSupportFragmentManager();
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, TicketsFragment.newInstance())
+                .replace(R.id.container, OnlineFragment.newInstance("tickets"))
                 .commit();
     }
 
@@ -150,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         fragmentManager = getSupportFragmentManager();
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, BomboniereFragment.newInstance())
+                .replace(R.id.container, OnlineFragment.newInstance("bomboniere"))
                 .commit();
     }
 
@@ -158,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         fragmentManager = getSupportFragmentManager();
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, FaqFragment.newInstance())
+                .replace(R.id.container, OnlineFragment.newInstance("faq"))
                 .commit();
     }
 
