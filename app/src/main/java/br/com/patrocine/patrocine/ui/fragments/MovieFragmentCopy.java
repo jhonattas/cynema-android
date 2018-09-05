@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -17,11 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
-import br.com.patrocine.patrocine.model.SectionData;
-import br.com.patrocine.patrocine.model.SingleItem;
 import br.com.patrocine.patrocine.rest.ApiClient;
 import br.com.patrocine.patrocine.ui.adapters.MovieAdapter;
-import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter;
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
 import br.com.patrocine.patrocine.ui.items.GridSpacingItemDecoration;
@@ -31,16 +27,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MovieFragment extends Fragment {
+public class MovieFragmentCopy extends Fragment {
     private static final String CLASS_NAME = MovieFragment.class.getSimpleName();
 
-    ArrayList<SectionData> allSampleData;
+    private RecyclerView recyclerView;
+    private ArrayList<Movie> itemsList;
+    private MovieAdapter mAdapter;
+
 
     private OnFragmentInteractionListener mListener;
 
     private ArrayList<Movie> MOVIES = new ArrayList<>();
 
-    public MovieFragment() {
+    public MovieFragmentCopy() {
     }
 
     public static MovieFragment newInstance() {
@@ -58,19 +57,7 @@ public class MovieFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_movie_new, container, false);
 
-        allSampleData = new ArrayList<>();
-
-        createDummyData();
-
-
-        RecyclerView my_recycler_view = view.findViewById(R.id.my_recycler_view);
-
-        my_recycler_view.setHasFixedSize(true);
-        RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(view.getContext(), allSampleData);
-        my_recycler_view.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
-        my_recycler_view.setAdapter(adapter);
-
-        /* recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view);
         itemsList = new ArrayList<>();
 
         mAdapter = new MovieAdapter(getActivity(), itemsList, mListener);
@@ -81,7 +68,8 @@ public class MovieFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setNestedScrollingEnabled(false);
-        */
+
+        populateMovies();
 
         return view;
     }
@@ -117,32 +105,26 @@ public class MovieFragment extends Fragment {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 
-    public void createDummyData() {
-        for (int i = 1; i <= 3; i++) {
-
-            SectionData dm = new SectionData();
-
-            if(i == 1){
-                dm.setHeaderTitle("Em Cartaz");
+    private void populateMovies(){
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ArrayList<Movie>> call = apiService.getAllMovies();
+        call.enqueue(new Callback<ArrayList<Movie>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Movie>> call, Response<ArrayList<Movie>> response) {
+                if(response.body() != null) {
+                    MOVIES = response.body();
+                    itemsList.clear();
+                    itemsList.addAll(MOVIES);
+                    mAdapter.notifyDataSetChanged();
+                }
             }
 
-            if(i == 2){
-                dm.setHeaderTitle("Em Breve");
+            @Override
+            public void onFailure(Call<ArrayList<Movie>> call, Throwable t) {
+                Toast.makeText(getContext(), R.string.failed_connection, Toast.LENGTH_SHORT).show();
+                Log.e(CLASS_NAME, t.getLocalizedMessage());
             }
-
-            if(i == 3){
-                dm.setHeaderTitle("Patrocinadores");
-            }
-
-            ArrayList<SingleItem> singleItem = new ArrayList<SingleItem>();
-            for (int j = 0; j <= 5; j++) {
-                singleItem.add(new SingleItem("Item " + j, "URL " + j));
-            }
-
-            dm.setAllItemsInSection(singleItem);
-            allSampleData.add(dm);
-
-        }
+        });
     }
 
 }

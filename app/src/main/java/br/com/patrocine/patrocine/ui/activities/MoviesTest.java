@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.SectionData;
 import br.com.patrocine.patrocine.model.SingleItem;
@@ -20,7 +18,7 @@ public class MoviesTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_test);
-        allSampleData = new ArrayList<SectionData>();
+        allSampleData = new ArrayList<>();
 
         setTitle("Teste Jean");
         createDummyData();
