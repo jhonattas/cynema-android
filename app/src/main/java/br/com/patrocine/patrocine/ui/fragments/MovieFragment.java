@@ -18,13 +18,11 @@ import android.widget.Toast;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.model.SectionData;
-import br.com.patrocine.patrocine.model.SingleItem;
 import br.com.patrocine.patrocine.rest.ApiClient;
 import br.com.patrocine.patrocine.ui.adapters.MovieAdapter;
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter;
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
-import br.com.patrocine.patrocine.ui.items.GridSpacingItemDecoration;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -37,8 +35,12 @@ public class MovieFragment extends Fragment {
     ArrayList<SectionData> allSampleData;
 
     private OnFragmentInteractionListener mListener;
-
     private ArrayList<Movie> MOVIES = new ArrayList<>();
+
+    private RecyclerView recyclerView;
+    private ArrayList<Movie> itemsList;
+    private MovieAdapter mAdapter;
+    private RecyclerViewDataAdapter adapter;
 
     public MovieFragment() {
     }
@@ -60,20 +62,18 @@ public class MovieFragment extends Fragment {
 
         allSampleData = new ArrayList<>();
 
-        createDummyData();
-
-
         RecyclerView my_recycler_view = view.findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
-        RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(view.getContext(), allSampleData);
+        adapter = new RecyclerViewDataAdapter(view.getContext(), allSampleData);
         my_recycler_view.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
         my_recycler_view.setAdapter(adapter);
 
-        /* recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view);
         itemsList = new ArrayList<>();
-
         mAdapter = new MovieAdapter(getActivity(), itemsList, mListener);
+
+        /*
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -82,6 +82,8 @@ public class MovieFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
         recyclerView.setNestedScrollingEnabled(false);
         */
+
+        populateMovies();
 
         return view;
     }
@@ -134,15 +136,42 @@ public class MovieFragment extends Fragment {
                 dm.setHeaderTitle("Patrocinadores");
             }
 
-            ArrayList<SingleItem> singleItem = new ArrayList<SingleItem>();
+            /* ArrayList<Movie> singleItem = new ArrayList<Movie>();
             for (int j = 0; j <= 5; j++) {
-                singleItem.add(new SingleItem("Item " + j, "URL " + j));
-            }
+                singleItem.add(new Movie("Item " + j, "URL " + j));
+            }*/
 
-            dm.setAllItemsInSection(singleItem);
+            dm.setAllItemsInSection(itemsList);
             allSampleData.add(dm);
 
         }
+        adapter.notifyDataSetChanged();
+    }
+
+    void populateMovies(){
+        Log.e(CLASS_NAME, "entrei em POPULATE");
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ArrayList<Movie>> call = apiService.getAllMovies();
+        call.enqueue(new Callback<ArrayList<Movie>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Movie>> call, Response<ArrayList<Movie>> response) {
+                if(response.body() != null) {
+                    MOVIES = response.body();
+                    itemsList.clear();
+                    itemsList.addAll(MOVIES);
+                    mAdapter.notifyDataSetChanged();
+
+                    createDummyData();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Movie>> call, Throwable t) {
+                Toast.makeText(getContext(), R.string.failed_connection, Toast.LENGTH_SHORT).show();
+                Log.e(CLASS_NAME, t.getLocalizedMessage());
+            }
+        });
     }
 
 }

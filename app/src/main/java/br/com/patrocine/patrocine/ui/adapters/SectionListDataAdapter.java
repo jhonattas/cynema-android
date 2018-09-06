@@ -9,17 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import br.com.patrocine.patrocine.R;
-import br.com.patrocine.patrocine.model.SingleItem;
+import br.com.patrocine.patrocine.model.Movie;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
-    private ArrayList<SingleItem> itemsList;
+    private ArrayList<Movie> itemsList;
     private Context mContext;
 
-    public SectionListDataAdapter(Context context, ArrayList<SingleItem> itemsList) {
+    public SectionListDataAdapter(Context context, ArrayList<Movie> itemsList) {
+        this.mContext = context;
         this.itemsList = itemsList;
         this.mContext = context;
     }
@@ -34,9 +37,12 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
 
-        SingleItem singleItem = itemsList.get(i);
-        holder.tvTitle.setText(singleItem.getName());
+        Movie singleItem = itemsList.get(i);
+        holder.tvTitle.setText(singleItem.getTitle());
 
+        Glide.with(mContext)
+                .load(singleItem.getImage())
+                .into(holder.itemImage);
 
        /* Glide.with(mContext)
                 .load(feedItem.getImageURL())

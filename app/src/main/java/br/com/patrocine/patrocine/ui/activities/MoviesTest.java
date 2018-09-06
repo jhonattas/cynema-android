@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import br.com.patrocine.patrocine.R;
+import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.model.SectionData;
-import br.com.patrocine.patrocine.model.SingleItem;
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter;
 
 public class MoviesTest extends AppCompatActivity {
@@ -23,14 +23,12 @@ public class MoviesTest extends AppCompatActivity {
         setTitle("Teste Jean");
         createDummyData();
 
-
         RecyclerView my_recycler_view = findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, allSampleData);
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         my_recycler_view.setAdapter(adapter);
-
 
     }
 
@@ -51,9 +49,9 @@ public class MoviesTest extends AppCompatActivity {
                 dm.setHeaderTitle("Patrocinadores");
             }
 
-            ArrayList<SingleItem> singleItem = new ArrayList<SingleItem>();
-            for (int j = 0; j <= 5; j++) {
-                singleItem.add(new SingleItem("Item " + j, "URL " + j));
+            ArrayList<Movie> singleItem = new ArrayList<>();
+            for (Movie movie : singleItem) {
+                singleItem.add(movie);
             }
 
             dm.setAllItemsInSection(singleItem);

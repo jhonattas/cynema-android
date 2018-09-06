@@ -34,9 +34,7 @@ public class MovieFragmentCopy extends Fragment {
     private ArrayList<Movie> itemsList;
     private MovieAdapter mAdapter;
 
-
     private OnFragmentInteractionListener mListener;
-
     private ArrayList<Movie> MOVIES = new ArrayList<>();
 
     public MovieFragmentCopy() {

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class SectionData {
 
     private String headerTitle;
-    private ArrayList<SingleItem> allItemsInSection;
+    private ArrayList<Movie> allItemsInSection;
 
     public SectionData() {
-
     }
-    public SectionData(String headerTitle, ArrayList<SingleItem> allItemsInSection) {
+
+    public SectionData(String headerTitle, ArrayList<Movie> allItemsInSection) {
         this.headerTitle = headerTitle;
         this.allItemsInSection = allItemsInSection;
     }
@@ -23,11 +23,11 @@ public class SectionData {
         this.headerTitle = headerTitle;
     }
 
-    public ArrayList<SingleItem> getAllItemsInSection() {
+    public ArrayList<Movie> getAllItemsInSection() {
         return allItemsInSection;
     }
 
-    public void setAllItemsInSection(ArrayList<SingleItem> allItemsInSection) {
+    public void setAllItemsInSection(ArrayList<Movie> allItemsInSection) {
         this.allItemsInSection = allItemsInSection;
     }
 
