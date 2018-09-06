@@ -38,7 +38,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
 
         Movie singleItem = itemsList.get(i);
-        holder.tvTitle.setText(singleItem.getTitle());
+        holder.tvTitle.setText(singleItem.getFullTitle());
 
         Glide.with(mContext)
                 .load(singleItem.getImage())
