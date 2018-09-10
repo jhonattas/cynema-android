@@ -53,7 +53,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             tvProductIngredients.setText(s.getIngredients());
             tvProductValue.setText("R$ "+ s.getPrice());
             String imageUrl = s.getPreview();
-            Picasso.with(this).load(imageUrl).into(productImage);
+
+            // Picasso.with(this).load(imageUrl).into(productImage);
         }
     }
 

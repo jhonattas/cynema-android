@@ -120,7 +120,7 @@ public class MovieFragment extends Fragment {
     }
 
     public void createDummyData() {
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 2; i++) {
 
             SectionData dm = new SectionData();
 
@@ -132,9 +132,6 @@ public class MovieFragment extends Fragment {
                 dm.setHeaderTitle("Em Breve");
             }
 
-            if(i == 3){
-                dm.setHeaderTitle("Patrocinadores");
-            }
 
             /* ArrayList<Movie> singleItem = new ArrayList<Movie>();
             for (int j = 0; j <= 5; j++) {
