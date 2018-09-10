@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     CharSequence mTitle;
     String currentOption = "";
     FragmentManager fragmentManager = getSupportFragmentManager();
-    AdView mAdView;
+    ImageView ownAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,11 +104,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     }
 
     void onCreateComponents(){
-        MobileAds.initialize(this, getString(R.string.admob_id));
+        String url = "https://api.patrocine.com.br/static/data/partners/partner_chaplin.png";
 
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        ownAd = findViewById(R.id.adView);
+
+        Glide.with(this)
+                .load(url)
+                .into(ownAd);
 
     }
 

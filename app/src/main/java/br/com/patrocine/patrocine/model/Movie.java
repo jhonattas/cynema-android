@@ -11,7 +11,7 @@ public class Movie implements Serializable {
     private int id;
     @SerializedName("title")
     private String title;
-    @SerializedName("fullTitle")
+    @SerializedName("full_title")
     private String fullTitle;
     @SerializedName("sinopse")
     private String sinopse;
@@ -96,6 +96,7 @@ public class Movie implements Serializable {
     }
 
     public String getImage() {
+        this.image = "https://api.patrocine.com.br/v1/static/images/covers/" + this.image;
         return image;
     }
 

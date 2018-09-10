@@ -17,6 +17,9 @@ public interface ApiInterface {
     @GET("lanches")
     Call<SnackResponse> getAllSnacks();
 
-    @GET("static/data/moviesexample.json")
+    @GET("v1/movies")
     Call<ArrayList<Movie>> getAllMovies();
+
+    @GET("v1/movies_soon")
+    Call<ArrayList<Movie>> getAllMoviesSoon();
 }

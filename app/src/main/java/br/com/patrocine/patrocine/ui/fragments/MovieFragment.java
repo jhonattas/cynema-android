@@ -14,12 +14,17 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.model.SectionData;
 import br.com.patrocine.patrocine.rest.ApiClient;
 import br.com.patrocine.patrocine.ui.adapters.MovieAdapter;
+import br.com.patrocine.patrocine.ui.adapters.MovieSoonAdapter;
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter;
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
@@ -36,10 +41,15 @@ public class MovieFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private ArrayList<Movie> MOVIES = new ArrayList<>();
+    private ArrayList<Movie> MOVIES_SOON = new ArrayList<>();
 
+    private ImageView topHeader;
     private RecyclerView recyclerView;
     private ArrayList<Movie> itemsList;
+    private ArrayList<Movie> itemsListSoon;
+
     private MovieAdapter mAdapter;
+
     private RecyclerViewDataAdapter adapter;
 
     public MovieFragment() {
@@ -73,6 +83,9 @@ public class MovieFragment extends Fragment {
         itemsList = new ArrayList<>();
         mAdapter = new MovieAdapter(getActivity(), itemsList, mListener);
 
+        itemsListSoon = new ArrayList<>();
+        //mAdapterSoon = new MovieSoonAdapter(getActivity(), itemsListSoon, mListener);
+
         /*
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
@@ -84,6 +97,14 @@ public class MovieFragment extends Fragment {
         */
 
         populateMovies();
+
+        topHeader = view.findViewById(R.id.topHeader);
+
+        String url = "https://patrocine.com.br/static/img/welcome/slides/slider_01.png";
+
+        Glide.with(this)
+                .load(url)
+                .into(topHeader);
 
         return view;
     }
@@ -126,10 +147,12 @@ public class MovieFragment extends Fragment {
 
             if(i == 1){
                 dm.setHeaderTitle("Em Cartaz");
+                dm.setAllItemsInSection(itemsList);
             }
 
             if(i == 2){
                 dm.setHeaderTitle("Em Breve");
+                dm.setAllItemsInSection(itemsListSoon);
             }
 
 
@@ -138,7 +161,6 @@ public class MovieFragment extends Fragment {
                 singleItem.add(new Movie("Item " + j, "URL " + j));
             }*/
 
-            dm.setAllItemsInSection(itemsList);
             allSampleData.add(dm);
 
         }
@@ -146,7 +168,7 @@ public class MovieFragment extends Fragment {
     }
 
     void populateMovies(){
-        Log.e(CLASS_NAME, "entrei em POPULATE");
+        Log.e(CLASS_NAME, "entrei em POPULATE MOVIES");
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ArrayList<Movie>> call = apiService.getAllMovies();
@@ -157,6 +179,36 @@ public class MovieFragment extends Fragment {
                     MOVIES = response.body();
                     itemsList.clear();
                     itemsList.addAll(MOVIES);
+                    mAdapter.notifyDataSetChanged();
+
+                    populateMoviesSoon();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Movie>> call, Throwable t) {
+                Toast.makeText(getContext(), R.string.failed_connection, Toast.LENGTH_SHORT).show();
+                Log.e(CLASS_NAME, t.getLocalizedMessage());
+            }
+        });
+    }
+
+    void populateMoviesSoon(){
+
+        Log.e(CLASS_NAME, "entrei em POPULATE MOVIES SOONS");
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ArrayList<Movie>> call = apiService.getAllMoviesSoon();
+        call.enqueue(new Callback<ArrayList<Movie>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Movie>> call, Response<ArrayList<Movie>> response) {
+                if(response.body() != null) {
+                    MOVIES_SOON = response.body();
+
+                    Log.e(CLASS_NAME, "resposta: " + response.body().toString());
+
+                    itemsListSoon.clear();
+                    itemsListSoon.addAll(MOVIES_SOON);
                     mAdapter.notifyDataSetChanged();
 
                     createDummyData();
