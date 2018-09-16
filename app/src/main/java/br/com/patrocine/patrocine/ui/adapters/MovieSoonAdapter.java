@@ -1,19 +1,15 @@
 package br.com.patrocine.patrocine.ui.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-
+import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
-
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
@@ -42,9 +38,7 @@ public class MovieSoonAdapter extends RecyclerView.Adapter<MovieSoonAdapter.Movi
 
         holder.name.setText(holder.movie.getFullTitle());
 
-        Glide.with(context)
-                .load(holder.movie.getImage())
-                .into(holder.thumbnail);
+        Picasso.get().load(holder.movie.getImage()).into(holder.thumbnail);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,8 +1,6 @@
 package br.com.patrocine.patrocine.ui.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +8,22 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.SectionData;
+import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
 
 public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDataAdapter.ItemRowHolder> {
 
     private ArrayList<SectionData> dataList;
     private Context mContext;
+    OnFragmentInteractionListener listener;
 
-    public RecyclerViewDataAdapter(Context context, ArrayList<SectionData> dataList) {
+    public RecyclerViewDataAdapter(Context context, ArrayList<SectionData> dataList, OnFragmentInteractionListener listener) {
         this.dataList = dataList;
         this.mContext = context;
+        this.listener = listener;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
         itemRowHolder.itemTitle.setText(sectionName);
 
-        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
+        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems, listener);
 
         itemRowHolder.recycler_view_list.setHasFixedSize(true);
         itemRowHolder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));

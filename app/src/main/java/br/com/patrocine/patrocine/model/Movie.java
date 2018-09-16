@@ -33,7 +33,7 @@ public class Movie implements Serializable {
     private String slide03;
     @SerializedName("trailer")
     private String trailer;
-    @SerializedName("grid")
+    @SerializedName("sessions")
     private ArrayList<Grid> grid;
 
     public Movie(){

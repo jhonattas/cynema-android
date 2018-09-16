@@ -3,15 +3,16 @@ package br.com.patrocine.patrocine.ui.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.ui.adapters.SessionAdapter;
@@ -31,7 +32,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +39,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 watch_video(movie.getTrailer());
             }
         });
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         Bundle b = getIntent().getExtras();
         movie = (Movie) b.getSerializable("movie");
-
         onCreateComponents();
     }
 
@@ -57,10 +54,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         setTitle(movie.getFullTitle());
 
-        // monta a imagem de destaque do filme no topo da tela
-        Glide.with(this)
-                .load(movie.getImage_mini())
-                .into(movieSlider);
+        Picasso.get().load(movie.getImage_mini()).into(movieSlider);
 
         SessionAdapter sessionAdapter = new SessionAdapter(movie.getGrid());
 

@@ -8,17 +8,6 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp">
 
-    <TextView
-        android:padding="5dp"
-        android:id="@+id/tvSessionDay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/primaryColor"
-        android:text="17 de agosto"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginBottom="0dp"/>
-
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/gridSessions"

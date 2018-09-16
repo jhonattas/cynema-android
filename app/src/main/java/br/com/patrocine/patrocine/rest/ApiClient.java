@@ -1,7 +1,6 @@
 package br.com.patrocine.patrocine.rest;
 
 import br.com.patrocine.patrocine.BuildConfig;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

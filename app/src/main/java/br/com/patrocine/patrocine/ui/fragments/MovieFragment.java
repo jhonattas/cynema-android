@@ -4,11 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -17,14 +13,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.model.SectionData;
 import br.com.patrocine.patrocine.rest.ApiClient;
 import br.com.patrocine.patrocine.ui.adapters.MovieAdapter;
-import br.com.patrocine.patrocine.ui.adapters.MovieSoonAdapter;
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter;
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
@@ -35,16 +33,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MovieFragment extends Fragment {
+
     private static final String CLASS_NAME = MovieFragment.class.getSimpleName();
-
-    ArrayList<SectionData> allSampleData;
-
     private OnFragmentInteractionListener mListener;
     private ArrayList<Movie> MOVIES = new ArrayList<>();
     private ArrayList<Movie> MOVIES_SOON = new ArrayList<>();
 
     private ImageView topHeader;
     private RecyclerView recyclerView;
+    private ArrayList<SectionData> allSampleData;
     private ArrayList<Movie> itemsList;
     private ArrayList<Movie> itemsListSoon;
 
@@ -75,8 +72,8 @@ public class MovieFragment extends Fragment {
         RecyclerView my_recycler_view = view.findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
-        adapter = new RecyclerViewDataAdapter(view.getContext(), allSampleData);
-        my_recycler_view.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
+        adapter = new RecyclerViewDataAdapter(view.getContext(), allSampleData, mListener);
+        my_recycler_view.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false));
         my_recycler_view.setAdapter(adapter);
 
         recyclerView = view.findViewById(R.id.recycler_view);
@@ -87,7 +84,6 @@ public class MovieFragment extends Fragment {
         //mAdapterSoon = new MovieSoonAdapter(getActivity(), itemsListSoon, mListener);
 
         /*
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(3, dpToPx(8), true));
@@ -97,14 +93,9 @@ public class MovieFragment extends Fragment {
         */
 
         populateMovies();
-
         topHeader = view.findViewById(R.id.topHeader);
-
         String url = "https://patrocine.com.br/static/img/welcome/slides/slider_01.png";
-
-        Glide.with(this)
-                .load(url)
-                .into(topHeader);
+        Picasso.get().load(url).into(topHeader);
 
         return view;
     }
@@ -155,7 +146,6 @@ public class MovieFragment extends Fragment {
                 dm.setAllItemsInSection(itemsListSoon);
             }
 
-
             /* ArrayList<Movie> singleItem = new ArrayList<Movie>();
             for (int j = 0; j <= 5; j++) {
                 singleItem.add(new Movie("Item " + j, "URL " + j));
@@ -167,9 +157,7 @@ public class MovieFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    void populateMovies(){
-        Log.e(CLASS_NAME, "entrei em POPULATE MOVIES");
-
+    private void populateMovies(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ArrayList<Movie>> call = apiService.getAllMovies();
         call.enqueue(new Callback<ArrayList<Movie>>() {
@@ -180,7 +168,6 @@ public class MovieFragment extends Fragment {
                     itemsList.clear();
                     itemsList.addAll(MOVIES);
                     mAdapter.notifyDataSetChanged();
-
                     populateMoviesSoon();
                 }
             }
@@ -194,9 +181,6 @@ public class MovieFragment extends Fragment {
     }
 
     void populateMoviesSoon(){
-
-        Log.e(CLASS_NAME, "entrei em POPULATE MOVIES SOONS");
-
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ArrayList<Movie>> call = apiService.getAllMoviesSoon();
         call.enqueue(new Callback<ArrayList<Movie>>() {
@@ -204,13 +188,9 @@ public class MovieFragment extends Fragment {
             public void onResponse(Call<ArrayList<Movie>> call, Response<ArrayList<Movie>> response) {
                 if(response.body() != null) {
                     MOVIES_SOON = response.body();
-
-                    Log.e(CLASS_NAME, "resposta: " + response.body().toString());
-
                     itemsListSoon.clear();
                     itemsListSoon.addAll(MOVIES_SOON);
                     mAdapter.notifyDataSetChanged();
-
                     createDummyData();
                 }
             }

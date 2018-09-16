@@ -1,14 +1,12 @@
 package br.com.patrocine.patrocine.ui.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import androidx.appcompat.app.AppCompatActivity;
 import br.com.patrocine.patrocine.R;
 
 public class AboutActivity extends AppCompatActivity {
-
 
 
     @Override

@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.support.v4.app.Fragment;
 
+import androidx.fragment.app.Fragment;
 import br.com.patrocine.patrocine.R;
 
 public class ContactFragment extends Fragment {

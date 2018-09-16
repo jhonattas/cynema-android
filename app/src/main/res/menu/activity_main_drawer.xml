@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_movies"
+            android:title="Em Cartaz" />
+        <item
+            android:id="@+id/nav_tickets"
+            android:title="Ingressos" />
+        <item
+            android:id="@+id/nav_bomboniere"
+            android:title="Bomboniere" />
+        <item
+            android:id="@+id/nav_faq"
+            android:title="Perguntas" />
+    </group>
+
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_location"
+                android:title="Localização" />
+            <item
+                android:id="@+id/nav_close"
+                android:title="Sair" />
+        </menu>
+    </item>
+
+</menu>

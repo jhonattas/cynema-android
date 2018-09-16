@@ -1,12 +1,12 @@
 package br.com.patrocine.patrocine.ui.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import br.com.patrocine.patrocine.BuildConfig;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Pizza;

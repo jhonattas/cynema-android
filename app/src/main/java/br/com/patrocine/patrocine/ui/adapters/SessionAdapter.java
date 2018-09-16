@@ -1,17 +1,21 @@
 package br.com.patrocine.patrocine.ui.adapters;
 
 import android.graphics.Typeface;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
+import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Grid;
 import br.com.patrocine.patrocine.model.Location;
@@ -19,25 +23,26 @@ import br.com.patrocine.patrocine.model.Session;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 
+    private static final String CLASS_NAME = SessionAdapter.class.getSimpleName();
     private ArrayList<Grid> grids;
+    int i;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public View view;
         public LinearLayout gridBox;
-        public TextView tvSessionDay;
         public LinearLayout locations;
 
         public ViewHolder(View view) {
             super(view);
             this.view = view;
             gridBox = (LinearLayout) view;
-            tvSessionDay = view.findViewById(R.id.tvSessionDay);
             locations = view.findViewById(R.id.gridSessions);
         }
     }
 
     public SessionAdapter(ArrayList<Grid> grids) {
         this.grids = grids;
+        this.i = 0;
     }
 
     @Override
@@ -50,65 +55,65 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Grid grid = grids.get(position);
-        String day = "Dia " + grid.getMonthNumber() + " (" + grid.getWeekDay() + ")";
-        holder.tvSessionDay.setText(day);
+        holder.locations.removeAllViews();
 
-        for(Location location : grid.getLocations()){
+        while(this.i < grids.size()){
+
+            Log.e(CLASS_NAME, "existem: " + grids.size());
+            Log.e(CLASS_NAME, "estou no: " + i);
+
             LinearLayout l = (LinearLayout) LayoutInflater.from(holder.view.getContext()).inflate(R.layout.item_session, holder.locations, false);
-
             LinearLayout locationButtons = l.findViewById(R.id.locationButtons);
             locationButtons.setOrientation(LinearLayout.VERTICAL);
-            TextView tvLocationName = l.findViewById(R.id.tvLocationName);
 
-            tvLocationName.setText(location.getName());
+            // ROOM
+            TextView tvLocation = new TextView(l.getContext());
+            tvLocation.setText(grids.get(i).getDay());
 
-            for(Session session : location.getSessions()){
-                LinearLayout sessionContainer = new LinearLayout(l.getContext());
-                sessionContainer.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout sessionContainer = new LinearLayout(l.getContext());
+            sessionContainer.setOrientation(LinearLayout.HORIZONTAL);
 
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                params.setMargins(2, 1, 2, 1);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(2, 1, 2, 1);
 
-                Button locationStart = new Button(l.getContext());
-                locationStart.setText(session.getStart());
-                locationStart.setTextColor(l.getResources().getColor(R.color.primaryTextColor));
-                locationStart.setTypeface(locationStart.getTypeface(), Typeface.BOLD);
-                locationStart.setBackgroundColor(l.getResources().getColor(R.color.sessionStart));
-                locationStart.setLayoutParams(params);
+            Button locationStart = new Button(l.getContext());
+            locationStart.setText(grids.get(i).getHour());
+            locationStart.setTextColor(l.getResources().getColor(R.color.primaryTextColor));
+            locationStart.setTypeface(locationStart.getTypeface(), Typeface.BOLD);
+            locationStart.setBackgroundColor(l.getResources().getColor(R.color.sessionStart));
+            locationStart.setLayoutParams(params);
 
-                Button sessionCategory = new Button(l.getContext());
-                sessionCategory.setText(session.getCategory());
-                sessionCategory.setTypeface(sessionCategory.getTypeface(), Typeface.BOLD);
-                sessionCategory.setTextColor(l.getResources().getColor(R.color.primaryTextColor));
-                sessionCategory.setBackgroundColor(l.getResources().getColor(R.color.sessionCategory));
-                sessionCategory.setLayoutParams(params);
+            Button sessionCategory = new Button(l.getContext());
+            sessionCategory.setText(grids.get(i).getCategory());
+            sessionCategory.setTypeface(sessionCategory.getTypeface(), Typeface.BOLD);
+            sessionCategory.setTextColor(l.getResources().getColor(R.color.primaryTextColor));
+            sessionCategory.setBackgroundColor(l.getResources().getColor(R.color.sessionCategory));
+            sessionCategory.setLayoutParams(params);
 
-                Button sessionLanguage = new Button(l.getContext());
-                sessionLanguage.setText(session.getLanguage());
-                sessionLanguage.setTypeface(sessionLanguage.getTypeface(), Typeface.BOLD);
-                sessionLanguage.setTextColor(l.getResources().getColor(R.color.gray));
-                sessionLanguage.setBackgroundColor(l.getResources().getColor(R.color.sessionLanguage));
-                sessionLanguage.setLayoutParams(params);
+            Button sessionLanguage = new Button(l.getContext());
+            sessionLanguage.setText(grids.get(i).getLanguage());
+            sessionLanguage.setTypeface(sessionLanguage.getTypeface(), Typeface.BOLD);
+            sessionLanguage.setTextColor(l.getResources().getColor(R.color.gray));
+            sessionLanguage.setBackgroundColor(l.getResources().getColor(R.color.sessionLanguage));
+            sessionLanguage.setLayoutParams(params);
 
 
-                sessionContainer.addView(locationStart);
-                sessionContainer.addView(sessionCategory);
-                sessionContainer.addView(sessionLanguage);
+            sessionContainer.addView(tvLocation);
+            sessionContainer.addView(locationStart);
+            sessionContainer.addView(sessionCategory);
+            sessionContainer.addView(sessionLanguage);
 
-                locationButtons.addView(sessionContainer);
+            locationButtons.addView(sessionContainer);
+
+            if(this.i < grids.size()) {
+                holder.locations.addView(l);
+                this.i++;
+            } else {
+                break;
             }
-
-
-
-            holder.locations.addView(l);
-            /*LocationAdapter locationAdapter = new LocationAdapter(grid.getLocations());
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(holder.view.getContext());
-            holder.locations.setLayoutManager(layoutManager);
-            holder.locations.setAdapter(locationAdapter);*/
         }
 
     }
