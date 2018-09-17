@@ -53,14 +53,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
         sessions = findViewById(R.id.rcSessions);
 
         setTitle(movie.getFullTitle());
+        String prefix = "https://api.patrocine.com.br/v1/static/images/mobile/";
 
-        Picasso.get().load(movie.getImage_mini()).into(movieSlider);
+        Picasso.get().load(prefix + movie.getImage_mini()).into(movieSlider);
 
-        SessionAdapter sessionAdapter = new SessionAdapter(movie.getGrid());
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        sessions.setLayoutManager(layoutManager);
-        sessions.setAdapter(sessionAdapter);
+            SessionAdapter sessionAdapter = new SessionAdapter(movie.getGrid());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+            sessions.setLayoutManager(layoutManager);
+            sessions.setAdapter(sessionAdapter);
 
     }
 

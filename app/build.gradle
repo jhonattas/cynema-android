@@ -9,8 +9,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 17
-        versionName "1.0.20"
+        versionCode 20
+        versionName "1.0.23"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
         buildConfigField("String", "img_server", "\"https://api.patrocine.com.br/v1/static/images/\"")
 
@@ -33,7 +33,7 @@ android {
             resValue "string", "whatsapp", "1"
             resValue "string", "whatsappddd", "1"
             resValue "string", "endereco", "Av. João Alves do Nascimento, 2264 - Centro, Patrocínio - MG"
-            resValue "string", "geoLocation", "geo:-18.935881,-46.9924737"
+            resValue "string", "geoLocation", "https://www.google.com/maps/place/PatroCine+Cinema/@-18.935881,-46.9924737,17z/data=!4m13!1m7!3m6!1s0x0:0x0!2zMTjCsDU2JzA5LjIiUyA0NsKwNTknMzIuOSJX!3b1!8m2!3d-18.935881!4d-46.9924737!3m4!1s0x0:0xe6def686bf60c056!8m2!3d-18.9371397!4d-46.9905417"
         }
 
     }

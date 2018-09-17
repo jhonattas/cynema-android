@@ -24,12 +24,13 @@ import br.com.patrocine.patrocine.ui.interfaces.NavigationDrawerCallbacks;
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NavigationDrawerCallbacks, OnFragmentInteractionListener, Runnable {
 
     private int mInterval = 3000; // 5 seconds by default, can be changed later
 
-    private static final String CLASS_NAME = MainOldActivity.class.getSimpleName();
+    private static final String CLASS_NAME = MainActivity.class.getSimpleName();
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -43,10 +44,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         NavigationView navigationView = findViewById(R.id.navigation_drawer);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.openDrawer(GravityCompat.START);
+            }
+        });
 
         onCreateComponents();
         openMovies();
@@ -83,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     void onCreateComponents(){
         mHandler = new Handler();
-        ownAd = findViewById(R.id.adView);
+        ownAd = (AppCompatImageView) findViewById(R.id.adView);
     }
 
     @Override

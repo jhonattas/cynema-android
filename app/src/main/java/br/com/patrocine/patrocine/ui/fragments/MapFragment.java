@@ -46,7 +46,6 @@ public class MapFragment extends Fragment {
                 String sLocation = getResources().getString(R.string.geoLocation);
                 Uri gmmIntentUri = Uri.parse(sLocation);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
             }
         });
