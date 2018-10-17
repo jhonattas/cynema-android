@@ -6,16 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_movies"
-            android:title="Em Cartaz" />
+            android:title="@string/emcartaz" />
         <item
             android:id="@+id/nav_tickets"
-            android:title="Ingressos" />
+            android:title="@string/ingressos" />
+        <item
+            android:id="@+id/nav_promos"
+            android:title="@string/promocoes" />
         <item
             android:id="@+id/nav_bomboniere"
-            android:title="Bomboniere" />
+            android:title="@string/bomboniere" />
         <item
             android:id="@+id/nav_faq"
-            android:title="Perguntas" />
+            android:title="@string/perguntas" />
     </group>
 
 
@@ -23,10 +26,10 @@
         <menu>
             <item
                 android:id="@+id/nav_location"
-                android:title="Localização" />
+                android:title="@string/localizacao" />
             <item
                 android:id="@+id/nav_close"
-                android:title="Sair" />
+                android:title="@string/sair" />
         </menu>
     </item>
 

@@ -9,8 +9,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 20
-        versionName "1.0.23"
+        versionCode 23
+        versionName "1.0.26"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
         buildConfigField("String", "img_server", "\"https://api.patrocine.com.br/v1/static/images/\"")
 
@@ -25,8 +25,8 @@ android {
             dimension "default"
             buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
             resValue("string", "app_name", "Patrocine")
-            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\",\"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
-            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Bomboniere\"}, {\"2\", \"Perguntas\"}, {\"2\", \"Localização\"},  {\"3\", \"Sair\"} }")
+            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\",\"Promoções\", \"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
+            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Promoções\"}, {\"3\", \"Bomboniere\"}, {\"4\", \"Perguntas\"}, {\"5\", \"Localização\"},  {\"6\", \"Sair\"} }")
             resValue "string", "hotsite", "www.patrocine.com.br"
             resValue "string", "fonefixo", "3431990422"
             resValue "string", "fonefixoddd", "(34) 3199-0422"
@@ -60,26 +60,37 @@ android {
             resValue("string", "admob_id", "ca-app-pub-3940256099942544/6300978111")
         }
     }
-    buildToolsVersion = '28.0.2'
 
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha05'
-    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha05'
-    implementation 'com.google.android.material:material:1.0.0-rc02'
+    def lifecycle_version = "2.0.0"
+    def nav_version = "1.0.0-alpha06"
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha06'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha06'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation 'androidx.recyclerview:recyclerview:1.0.0-rc02'
-    implementation 'androidx.cardview:cardview:1.0.0-rc02'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     // retrofit, gson, picasso
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version" // use -ktx for Kotlin
+
+    implementation "android.arch.navigation:navigation-fragment:$nav_version" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
+    implementation "com.google.firebase:firebase-messaging:17.3.4"
+
+        // optional - Test helpers
+    androidTestImplementation "android.arch.navigation:navigation-testing:$nav_version" // use -ktx for Kotlin
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-beta02'
 
 }

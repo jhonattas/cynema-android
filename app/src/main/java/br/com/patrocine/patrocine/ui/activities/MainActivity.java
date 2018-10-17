@@ -1,11 +1,14 @@
 package br.com.patrocine.patrocine.ui.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -15,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import br.com.patrocine.patrocine.R;
+import br.com.patrocine.patrocine.io.Config;
 import br.com.patrocine.patrocine.model.Movie;
 import br.com.patrocine.patrocine.ui.fragments.MapFragment;
 import br.com.patrocine.patrocine.ui.fragments.MovieFragment;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String adUrl;
     private int adCount = 0;
     private Handler mHandler;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         openMovies();
 
         startRepeatingTask();
+
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                // checking for type intent filter
+                if (intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
+                    // gcm successfully registered
+                    // now subscribe to `global` topic to receive app wide notifications
+                    FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
+
+                    //displayFirebaseRegId();
+
+                } else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)) {
+                    // new push notification is received
+
+                    String message = intent.getStringExtra("message");
+
+                    // Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
+                    //txtMessage.setText(message);
+                }
+            }
+        };
     }
 
     public void onSectionAttached(int number) {
@@ -75,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_tickets:
                 openTickets();
                 setTitle(R.string.title_tickets);
+                break;
+            case R.id.nav_promos:
+                setTitle(R.string.promocoes);
+                openPromos();
                 break;
             case R.id.nav_bomboniere:
                 setTitle(R.string.title_bomboniere);
@@ -178,6 +210,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .commit();
     }
 
+    void openPromos(){
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("promocoes"))
+                .commit();
+    }
+
     void openBomboniere(){
         fragmentManager = getSupportFragmentManager();
         fragmentManager
@@ -278,5 +318,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         b.putSerializable("movie", movie);
         i.putExtras(b);
         startActivity(i);
+    }
+
+    public void setupNavigation() {
+        
     }
 }

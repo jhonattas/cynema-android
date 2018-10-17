@@ -82,6 +82,10 @@ public class OnlineFragment extends Fragment {
                 url = "https://clear.patrocine.com.br/ingressos";
                 break;
 
+            case "promocoes":
+                url = "https://clear.patrocine.com.br/promocoes";
+                break;
+
             case "faq":
                 url = "https://clear.patrocine.com.br/perguntas-frequentes";
                 break;

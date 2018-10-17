@@ -14,12 +14,14 @@
         android:layout_height="match_parent">
 
 
-        <FrameLayout
+        <androidx.fragment.app.FragmentTabHost
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="52dp">
-        </FrameLayout>
+            android:layout_marginBottom="52dp"
+            app:navGraph="@navigation/navigation_graph"
+            app:defaultNavHost="true">
+        </androidx.fragment.app.FragmentTabHost>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:padding="8dp"

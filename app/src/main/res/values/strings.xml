@@ -4,6 +4,10 @@
     <string name="confirm_exit">Deseja encerrar o aplicativo Patrocine?</string>
     <string name="exit">Sair</string>
 
+    <string name="next">AVANÇAR</string>
+    <string name="skip">VOLTAR</string>
+    <string name="start">INICIAR</string>
+
     <string name="title_tickets">Ingressos</string>
     <string name="title_bomboniere">Bomboniere</string>
     <string name="title_faq">Perguntas Frequentes</string>
@@ -63,5 +67,29 @@
     <string name="nav_header_subtitle">www.patrocine.com.br</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="large_text">"testing"</string>
+
+    <string name="slide_1_title">Bomboniere</string>
+    <string name="slide_1_desc">Os preços atualizados de todos os itens a venda podem ser consultados aqui pelo aplicativo.</string>
+
+    <string name="slide_2_title">Ingressos</string>
+    <string name="slide_2_desc">Consulte os horários e preços das sessões, mas ATENÇÃO: \nO número do acento vem impresso no comprovante, não respeitar esta regra pode ocasionar a perca do seu ingresso.</string>
+
+    <string name="slide_3_title">Fidelidade e Promoções</string>
+    <string name="slide_3_desc">Esteja sempre por dentro das promoções do cinema, e se cadastre em nosso programa de fidelidade para acumular pontos e resgatar prêmios.</string>
+
+    <string name="slide_4_title">World Travel</string>
+    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="emcartaz">Em Cartaz</string>
+    <string name="ingressos">Ingressos</string>
+    <string name="promocoes">Promoções</string>
+    <string name="bomboniere">Bomboniere</string>
+    <string name="perguntas">Perguntas</string>
+    <string name="localizacao">Mapa</string>
+    <string name="sair">Sair</string>
+
 
 </resources>
