@@ -9,8 +9,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 23
-        versionName "1.0.26"
+        versionCode 24
+        versionName "1.0.30"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
         buildConfigField("String", "img_server", "\"https://api.patrocine.com.br/v1/static/images/\"")
 
