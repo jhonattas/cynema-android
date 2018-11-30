@@ -11,8 +11,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 24
-        versionName "1.0.30"
+        versionCode 27
+        versionName "1.0.32"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
 
     }
