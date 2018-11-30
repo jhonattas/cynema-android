@@ -10,3 +10,5 @@
 .externalNativeBuild
 *.apk
 *.aab
+gradle/wrapper/gradle-wrapper.properties
+.idea
