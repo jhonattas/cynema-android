@@ -90,6 +90,7 @@
     <string name="perguntas">Perguntas</string>
     <string name="localizacao">Mapa</string>
     <string name="sair">Sair</string>
+    <string name="title_activity_menu">MenuActivity</string>
 
 
 </resources>
