@@ -1,36 +1,45 @@
 package br.com.patrocine.patrocine.ui.activities
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import br.com.patrocine.patrocine.R
+import br.com.patrocine.patrocine.model.Movie
+import br.com.patrocine.patrocine.ui.fragments.MapFragment
+import br.com.patrocine.patrocine.ui.fragments.MovieFragment
+import br.com.patrocine.patrocine.ui.fragments.OnlineFragment
+import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
-class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MenuActivity : AppCompatActivity(),
+        NavigationView.OnNavigationItemSelectedListener,
+        OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
         val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+                this,
+                drawer_layout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        openMovies()
     }
 
     override fun onBackPressed() {
@@ -58,30 +67,108 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        Toast.makeText(this, "cliquei em " + item, Toast.LENGTH_SHORT).show()
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.navMovies -> {
+                openMovies()
             }
-            R.id.nav_gallery -> {
-
+            R.id.navPromos -> {
+                openPromos()
             }
-            R.id.nav_slideshow -> {
 
+            R.id.navBomboniere -> {
+                openBomboniere()
             }
-            R.id.nav_manage -> {
 
+            R.id.navFaq -> {
+                openFaq()
             }
-            R.id.nav_share -> {
 
+            R.id.navTickets -> {
+                openTickets()
             }
-            R.id.nav_send -> {
 
+            R.id.navLocation -> {
+                openLocation()
+            }
+
+            R.id.navClose -> {
+                closeApp()
             }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    internal fun openMovies() {
+        title = getString(R.string.title_movies)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MovieFragment.newInstance())
+                .commit()
+    }
+
+    internal fun openTickets() {
+        title = getString(R.string.title_tickets)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("tickets"))
+                .commit()
+    }
+
+    internal fun openPromos() {
+        title = getString(R.string.promotions)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("promocoes"))
+                .commit()
+    }
+
+    internal fun openBomboniere() {
+        title = getString(R.string.title_bomboniere)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("bomboniere"))
+                .commit()
+    }
+
+    internal fun openFaq() {
+        title = getString(R.string.title_faq)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("faq"))
+                .commit()
+    }
+
+    internal fun openLocation() {
+        title = getString(R.string.title_location)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MapFragment.newInstance())
+                .commit()
+    }
+
+    fun closeApp() {
+        val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
+            when (which) {
+                DialogInterface.BUTTON_POSITIVE -> this@MenuActivity.finish()
+
+                DialogInterface.BUTTON_NEGATIVE -> {
+                }
+            }
+        }
+
+        val builder = AlertDialog.Builder(this@MenuActivity)
+        builder.setMessage(R.string.confirm_exit).setPositiveButton(android.R.string.yes, dialogClickListener)
+                .setNegativeButton(android.R.string.no, dialogClickListener).show()
+    }
+
+    override fun onFragmentInteraction(obj: Any) {
+        val movie = obj as Movie
+        val i = Intent(this, MovieDetailsActivity::class.java)
+        val b = Bundle()
+        b.putSerializable("movie", movie)
+        i.putExtras(b)
+        startActivity(i)
     }
 }
