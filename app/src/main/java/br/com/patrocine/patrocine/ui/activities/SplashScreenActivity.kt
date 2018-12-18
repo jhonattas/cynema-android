@@ -23,7 +23,7 @@ class SplashScreenActivity : Activity(), Runnable {
     }
 
     override fun run() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, WebDestaqueActivity::class.java))
         // startActivity(new Intent(this, MoviesTest.class));
         finish()
     }

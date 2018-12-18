@@ -24,7 +24,7 @@ class MovieAdapter(var context: Context, private val movieList: ArrayList<Movie>
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.movie = movieList[position]
         holder.name.text = holder.movie!!.fullTitle
-        Picasso.get().load(holder.movie!!.image).into(holder.thumbnail)
+        Picasso.with(context).load(holder.movie!!.image).into(holder.thumbnail)
 
         holder.cardView.setOnClickListener {
             listener?.onFragmentInteraction(holder.movie!!)

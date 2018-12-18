@@ -1,6 +1,8 @@
 package br.com.patrocine.patrocine.ui.fragments
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -14,27 +16,34 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.patrocine.patrocine.R
+import br.com.patrocine.patrocine.model.FeaturedImage
 import br.com.patrocine.patrocine.model.Movie
 import br.com.patrocine.patrocine.model.SectionData
+import br.com.patrocine.patrocine.model.response.FeaturedImagesResponse
 import br.com.patrocine.patrocine.rest.ApiClient
 import br.com.patrocine.patrocine.ui.adapters.MovieAdapter
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener
+import com.bumptech.glide.Glide
+import com.daimajia.slider.library.SliderLayout
+import com.daimajia.slider.library.SliderTypes.BaseSliderView
+import com.daimajia.slider.library.SliderTypes.TextSliderView
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_movie.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
-
 class MovieFragment : Fragment() {
+
     private var mListener: OnFragmentInteractionListener? = null
     private var MOVIES: ArrayList<Movie>? = ArrayList()
     private var MOVIES_SOON: ArrayList<Movie>? = ArrayList()
+    private var FEATURED_IMAGES: FeaturedImagesResponse? = null
 
-    private var topHeader: ImageView? = null
-    private var recyclerView: RecyclerView? = null
+    private var topHeader: SliderLayout? = null
     private var allSampleData: ArrayList<SectionData>? = null
     private var itemsList: ArrayList<Movie>? = null
     private var itemsListSoon: ArrayList<Movie>? = null
@@ -43,40 +52,26 @@ class MovieFragment : Fragment() {
 
     private var adapter: RecyclerViewDataAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_movie_new, container, false)
-        allSampleData = ArrayList()
+// Inflate the layout for this fragment
+        val view: View = inflater.inflate(R.layout.fragment_movie, container, false);
 
-        // myRecyclerView.setHasFixedSize(true)
-        adapter = RecyclerViewDataAdapter(view.context, allSampleData, mListener!!)
-        // myRecyclerView.setLayoutManager(LinearLayoutManager(view.context, RecyclerView.VERTICAL, false))
-        // myRecyclerView.setAdapter(adapter)
+        allSampleData = ArrayList<SectionData>()
 
-        recyclerView = view.findViewById(R.id.recycler_view)
-        itemsList = ArrayList()
-        mAdapter = MovieAdapter(requireContext(), itemsList!!, mListener)
+        var my_recycler_view: RecyclerView = view.findViewById(R.id.myRecyclerView);
 
-        itemsListSoon = ArrayList()
-        //mAdapterSoon = new MovieSoonAdapter(getActivity(), itemsListSoon, mListener);
+        my_recycler_view.setHasFixedSize(true);
+        adapter = RecyclerViewDataAdapter(view.context, allSampleData, mListener!!);
+        my_recycler_view.setLayoutManager(LinearLayoutManager(view.context, RecyclerView.VERTICAL, false));
+        my_recycler_view.setAdapter(adapter);
 
-        /*
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(3, dpToPx(8), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-        recyclerView.setNestedScrollingEnabled(false);
-        */
-
+        itemsList = ArrayList<Movie>();
+        mAdapter = MovieAdapter(view.context, itemsList!!, mListener);
+        itemsListSoon = ArrayList<Movie>()
         populateMovies()
-        topHeader = view.findViewById(R.id.topHeader)
-        val url = "https://patrocine.com.br/static/img/welcome/slides/slider_01.png"
-        Picasso.get().load(url).into(topHeader)
 
+        topHeader = view.findViewById(R.id.topHeader)
+        fetchSlides()
         return view
     }
 
@@ -108,13 +103,39 @@ class MovieFragment : Fragment() {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), r.displayMetrics))
     }
 
+    fun fetchSlides() {
+        val call = apiService.featuredImages()
+        call.enqueue(object : Callback<FeaturedImagesResponse> {
+            override fun onResponse(call: Call<FeaturedImagesResponse>, response: Response<FeaturedImagesResponse>) {
+                if (response.body() != null) {
+                    FEATURED_IMAGES = response.body()
+
+                    FEATURED_IMAGES!!.images?.forEachIndexed { index, featuredImage ->
+                        val textSliderView = TextSliderView(context)
+                        Log.e("ADICIONEI", featuredImage.image)
+                        textSliderView
+                                .description(index.toString())
+                                .image(featuredImage.image)
+                                //.image("https://patrocine.s3.us-east-2.amazonaws.com/slides/1543671914563_slide.png")
+                        topHeader!!.addSlider(textSliderView)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<FeaturedImagesResponse>, t: Throwable) {
+                Toast.makeText(context, R.string.failed_connection, Toast.LENGTH_SHORT).show()
+                Log.e(CLASS_NAME, t.localizedMessage)
+            }
+        })
+    }
+
     fun createDummyData() {
         for (i in 1..2) {
 
             val dm = SectionData()
 
             if (i == 1) {
-                dm.headerTitle = "Em Cartaz"
+                dm.headerTitle = "Em Exibição"
                 dm.allItemsInSection = itemsList
             }
 
@@ -136,7 +157,7 @@ class MovieFragment : Fragment() {
 
     private fun populateMovies() {
         val apiService = ApiClient.getClient().create(ApiInterface::class.java)
-        val call = apiService.allMovies
+        val call = apiService.allMovies()
         call.enqueue(object : Callback<ArrayList<Movie>> {
             override fun onResponse(call: Call<ArrayList<Movie>>, response: Response<ArrayList<Movie>>) {
                 if (response.body() != null) {
@@ -156,8 +177,7 @@ class MovieFragment : Fragment() {
     }
 
     internal fun populateMoviesSoon() {
-        val apiService = ApiClient.getClient().create(ApiInterface::class.java)
-        val call = apiService.allMoviesSoon
+        val call = apiService.allMoviesSoon()
         call.enqueue(object : Callback<ArrayList<Movie>> {
             override fun onResponse(call: Call<ArrayList<Movie>>, response: Response<ArrayList<Movie>>) {
                 if (response.body() != null) {
@@ -179,8 +199,10 @@ class MovieFragment : Fragment() {
     companion object {
 
         private val CLASS_NAME = MovieFragment::class.java.simpleName
+        private lateinit var apiService: ApiInterface
 
         fun newInstance(): MovieFragment {
+            apiService = ApiClient.getClient().create(ApiInterface::class.java)
             return MovieFragment()
         }
     }

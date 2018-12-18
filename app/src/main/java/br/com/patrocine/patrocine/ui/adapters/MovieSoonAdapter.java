@@ -38,7 +38,7 @@ public class MovieSoonAdapter extends RecyclerView.Adapter<MovieSoonAdapter.Movi
 
         holder.name.setText(holder.movie.getFullTitle());
 
-        Picasso.get().load(holder.movie.getImage()).into(holder.thumbnail);
+        Picasso.with(context).load(holder.movie.getImage()).into(holder.thumbnail);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

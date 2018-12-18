@@ -74,7 +74,7 @@ class ProductFragment : Fragment() {
 
     private fun populatePizzas() {
         val apiService = ApiClient.getClient().create(ApiInterface::class.java)
-        val call = apiService.allPizzas
+        val call = apiService.allPizzas()
         call.enqueue(object : Callback<PizzaResponse> {
             override fun onResponse(call: Call<PizzaResponse>, response: Response<PizzaResponse>) {
                 if (response.body() != null) {
@@ -93,7 +93,7 @@ class ProductFragment : Fragment() {
 
     private fun populateSnacks() {
         val apiService = ApiClient.getClient().create(ApiInterface::class.java)
-        val call = apiService.allSnacks
+        val call = apiService.allSnacks()
         call.enqueue(object : Callback<SnackResponse> {
             override fun onResponse(call: Call<SnackResponse>, response: Response<SnackResponse>) {
                 if (response.body() != null) {

@@ -8,6 +8,7 @@ import br.com.patrocine.patrocine.BuildConfig
 import br.com.patrocine.patrocine.R
 import br.com.patrocine.patrocine.model.Pizza
 import br.com.patrocine.patrocine.model.Snack
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class ProductDetailActivity : AppCompatActivity() {
             tvProductValue.text = "R$ " + s.price!!
             val imageUrl = s.preview
 
-            // Picasso.with(this).load(imageUrl).into(productImage);
+            Picasso.with(this).load(imageUrl).into(productImage);
         }
     }
 

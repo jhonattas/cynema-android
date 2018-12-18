@@ -1,6 +1,7 @@
 package br.com.patrocine.patrocine.app
 
 import android.app.Application
+import android.content.Context
 
 class Application : Application() {
 

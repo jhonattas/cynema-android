@@ -1,29 +1,35 @@
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textAlignment="center"
         android:orientation="vertical">
 
-        <TextView
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/topHeader"
             android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:layout_marginTop="49dp"
+            />
+        <com.daimajia.slider.library.Indicators.PagerIndicator
+            android:id="@+id/custom_indicator"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="5dp"
-            android:text="Em Cartaz"
-            android:textColor="#111"
-            android:textSize="20dp" />
+            android:gravity="center"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/myRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            tools:listitem="@layout/item_movie" />
 
     </LinearLayout>
 

@@ -105,7 +105,7 @@ class WelcomeActivity : AppCompatActivity() {
         layoutDots.removeAllViews()
         for (i in dots!!.indices) {
             dots!![i] = TextView(this)
-            dots!![i]!!.text = Html.fromHtml("&#8226;")
+            // dots!![i]!!.text = Html.fromHtml("&#8226;")
             dots!![i]!!.textSize = 35f
             dots!![i]!!.setTextColor(colorsInactive[currentPage])
             layoutDots.addView(dots!![i])

@@ -40,7 +40,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
         holder.movie = itemsList.get(i);
         holder.tvTitle.setText(holder.movie.getFullTitle());
 
-        Picasso.get().load(holder.movie.getImage()).into(holder.itemImage);
+        Picasso.with(mContext).load(holder.movie.getImage()).into(holder.itemImage);
     }
 
     @Override

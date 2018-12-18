@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
@@ -17,10 +18,13 @@ import androidx.core.view.GravityCompat
 import br.com.patrocine.patrocine.R
 import br.com.patrocine.patrocine.io.Config
 import br.com.patrocine.patrocine.model.Movie
+import br.com.patrocine.patrocine.model.Partners
+import br.com.patrocine.patrocine.rest.ApiClient
 import br.com.patrocine.patrocine.ui.fragments.MapFragment
 import br.com.patrocine.patrocine.ui.fragments.MovieFragment
 import br.com.patrocine.patrocine.ui.fragments.NavigationDrawerFragment
 import br.com.patrocine.patrocine.ui.fragments.OnlineFragment
+import br.com.patrocine.patrocine.ui.interfaces.ApiInterface
 import br.com.patrocine.patrocine.ui.interfaces.NavigationDrawerCallbacks
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener
 import com.google.android.material.navigation.NavigationView
@@ -28,6 +32,9 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, NavigationDrawerCallbacks, OnFragmentInteractionListener, Runnable {
 
@@ -40,6 +47,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var adCount = 0
     private var mHandler: Handler? = null
     private var mRegistrationBroadcastReceiver: BroadcastReceiver? = null
+    private lateinit var PARTNERS: ArrayList<Partners>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,14 +59,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-        toolbar.setNavigationOnClickListener(View.OnClickListener {
+        toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
-        })
+        }
 
         onCreateComponents()
         openMovies()
 
-        startRepeatingTask()
+        fetchPartners()
 
         mRegistrationBroadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
@@ -84,6 +92,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun onSectionAttached(number: Int) {
+        Toast.makeText(this, "numer" + number, Toast.LENGTH_SHORT).show()
         when (number) {
             R.id.navMovies -> {
                 openMovies()
@@ -138,6 +147,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        Toast.makeText(this, "item " + item.title, Toast.LENGTH_SHORT).show()
         onSectionAttached(item.itemId)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -217,42 +227,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun run() {
         try {
-            when (adCount) {
-                0 -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_chaplin.png"
-                    loadImage()
-                    this.adCount = adCount + 1
-                    Log.e(CLASS_NAME, "id 0")
-                }
-                1 -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_batata_minas.png"
-                    loadImage()
-                    this.adCount = adCount + 1
-                    Log.e(CLASS_NAME, "id 1")
-                }
-                2 -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_cofee_shop.png"
-                    loadImage()
-                    this.adCount = adCount + 1
-                    Log.e(CLASS_NAME, "id 2")
-                }
-                3 -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_modulo.png"
-                    loadImage()
-                    this.adCount = adCount + 1
-                    Log.e(CLASS_NAME, "id 3")
-                }
-                4 -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_toys.png"
-                    loadImage()
-                    this.adCount = 0
-                    Log.e(CLASS_NAME, "id 4")
-                }
-                else -> {
-                    this.adUrl = "https://api.patrocine.com.br/static/data/partners/partner_chaplin.png"
-                    loadImage()
-                }
-            }
+            this.adUrl = PARTNERS.get(adCount).image
+            loadImage()
+            if(this.adCount == PARTNERS.size)
+                this.adCount = 0
+            else
+                this.adCount += 1
+
         } finally {
             // 100% guarantee that this always happens, even if
             // your update method throws an exception
@@ -262,7 +243,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     internal fun loadImage() {
-        Picasso.get()
+        Picasso.with(this)
                 .load(this.adUrl)
                 .resize(320, 50)
                 .into(ownAd)
@@ -274,6 +255,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     internal fun stopRepeatingTask() {
         mHandler!!.removeCallbacks(this)
+    }
+
+    fun fetchPartners() {
+        val apiService = ApiClient.getClient().create(ApiInterface::class.java)
+        val call = apiService.allPartners()
+        call.enqueue(object : Callback<ArrayList<Partners>> {
+            override fun onResponse(call: Call<ArrayList<Partners>>, response: Response<ArrayList<Partners>>) {
+                if (response.body() != null) {
+                    PARTNERS = ArrayList<Partners>()
+                    PARTNERS = response.body()!!
+                    startRepeatingTask()
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<Partners>>, t: Throwable) {
+                //Toast.makeText(this, R.string.failed_connection, Toast.LENGTH_SHORT).show()
+                Log.e(CLASS_NAME, t.localizedMessage)
+            }
+        })
     }
 
     override fun onNavigationDrawerItemSelected(position: Int) {
@@ -294,7 +294,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     companion object {
-
         private val CLASS_NAME = MainActivity::class.java.simpleName
     }
 }

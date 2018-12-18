@@ -92,5 +92,7 @@
     <string name="sair">Sair</string>
     <string name="title_activity_menu">MenuActivity</string>
 
+    <string name="title_activity_web_destaque">WebDestaqueActivity</string>
+
 
 </resources>
