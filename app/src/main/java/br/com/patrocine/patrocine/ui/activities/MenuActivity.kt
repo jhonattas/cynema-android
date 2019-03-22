@@ -75,6 +75,10 @@ class MenuActivity : AppCompatActivity(),
                 openPromos()
             }
 
+            R.id.navLoyalty -> {
+                openLoyalty()
+            }
+
             R.id.navBomboniere -> {
                 openBomboniere()
             }
@@ -113,6 +117,14 @@ class MenuActivity : AppCompatActivity(),
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, OnlineFragment.newInstance("tickets"))
+                .commit()
+    }
+
+    internal fun openLoyalty() {
+        title = getString(R.string.fidelidade)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, OnlineFragment.newInstance("fidelidade"))
                 .commit()
     }
 

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -29,6 +30,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     private var movie: Movie? = null
     private var tvMovieSinopse: TextView? = null
     private var toolbar: Toolbar? = null
+    private var buyOnline: Button? = null
     private var movieSlider: ImageView? = null
     private var sessions: RecyclerView? = null
 
@@ -51,6 +53,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         tvMovieSinopse = findViewById(R.id.movie_sinopse)
         movieSlider = findViewById(R.id.movieSlider)
         sessions = findViewById(R.id.rcSessions)
+        buyOnline = findViewById<Button>(R.id.buyOnline)
 
         tvMovieSinopse?.text = movie?.sinopse
         Log.e("AQUI ", movie.toString())
@@ -61,6 +64,15 @@ class MovieDetailsActivity : AppCompatActivity() {
         sessions?.layoutManager = layoutManager
         sessions?.adapter = sessionAdapter
 
+        buyOnline!!.setOnClickListener{
+            openShop()
+        }
+
+    }
+
+    fun openShop() {
+        val i = Intent(Intent.ACTION_VIEW, Uri.parse("http://ingressoplus.com.br/patrocine"))
+        startActivity(i)
     }
 
     fun watch_video(url: String?) {

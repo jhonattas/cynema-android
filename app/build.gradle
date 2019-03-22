@@ -11,8 +11,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 40
-        versionName "3.0.1"
+        versionCode 45
+        versionName "3.7.5"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
 
     }
@@ -26,8 +26,8 @@ android {
             dimension "default"
             buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
             resValue("string", "app_name", "Patrocine")
-            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\",\"Promoções\", \"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
-            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Promoções\"}, {\"3\", \"Bomboniere\"}, {\"4\", \"Perguntas\"}, {\"5\", \"Localização\"},  {\"6\", \"Sair\"} }")
+            buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\", \"Fidelidade\", \"Promoções\", \"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
+            buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Fidelidade\"}, {\"3\", \"Promoções\"}, {\"4\", \"Bomboniere\"}, {\"5\", \"Perguntas\"}, {\"6\", \"Localização\"},  {\"7\", \"Sair\"} }")
             resValue "string", "hotsite", "www.patrocine.com.br"
             resValue "string", "fonefixo", "3431990422"
             resValue "string", "fonefixoddd", "(34) 3199-0422"

@@ -10,6 +10,11 @@
         <item
             android:id="@+id/navTickets"
             android:title="@string/ingressos" />
+
+        <item
+            android:id="@+id/navLoyalty"
+            android:title="@string/fidelidade" />
+
         <item
             android:id="@+id/navPromos"
             android:title="@string/promocoes" />

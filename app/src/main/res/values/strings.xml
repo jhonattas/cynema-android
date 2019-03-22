@@ -43,6 +43,7 @@
     <string name="contact">Contato</string>
     <string name="drinks">Bebidas</string>
     <string name="about">sobre</string>
+    <string name="buyOnline">comprar online</string>
     <string name="title_activity_about">AboutActivity</string>
 
     <string name="hello_world">Hello world!</string>
@@ -85,6 +86,7 @@
 
     <string name="emcartaz">Em Cartaz</string>
     <string name="ingressos">Ingressos</string>
+    <string name="fidelidade">Fidelidade</string>
     <string name="promocoes">Promoções</string>
     <string name="bomboniere">Bomboniere</string>
     <string name="perguntas">Perguntas</string>
