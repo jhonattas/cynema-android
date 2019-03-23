@@ -41,7 +41,7 @@ class ProductDetailActivity : AppCompatActivity() {
             tvProductValue.text = "R$ " + s.price!!
             val imageUrl = s.preview
 
-            Picasso.with(this).load(imageUrl).into(productImage);
+            Picasso.get().load(imageUrl).into(productImage)
         }
     }
 

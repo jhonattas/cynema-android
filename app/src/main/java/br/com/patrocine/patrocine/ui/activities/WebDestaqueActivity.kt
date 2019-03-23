@@ -35,7 +35,7 @@ class WebDestaqueActivity : AppCompatActivity() {
         fullscreenContent = findViewById(R.id.fullscreen_content)
 
         Picasso
-                .with(this)
+                .get()
                 .load("https://s3.us-east-2.amazonaws.com/patrocine/web/destaque.jpg")
                 .into(fullscreenContent)
 

@@ -242,8 +242,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    internal fun loadImage() {
-        Picasso.with(this)
+    private fun loadImage() {
+        Picasso.get()
                 .load(this.adUrl)
                 .resize(320, 50)
                 .into(ownAd)

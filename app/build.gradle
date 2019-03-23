@@ -11,8 +11,8 @@ android {
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 45
-        versionName "3.7.5"
+        versionCode 46
+        versionName "4.0.0"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
 
     }
@@ -112,7 +112,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     implementation 'com.nineoldandroids:library:2.4.0'
-    implementation 'com.daimajia.slider:library:1.1.5@aar'
+    api project(':slider')
 }
 repositories {
     mavenCentral()

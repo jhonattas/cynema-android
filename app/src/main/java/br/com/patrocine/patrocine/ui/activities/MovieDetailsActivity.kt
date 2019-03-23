@@ -57,7 +57,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         tvMovieSinopse?.text = movie?.sinopse
         Log.e("AQUI ", movie.toString())
-        Picasso.with(this).load(movie?.image_mini).into(movieSlider)
+        Picasso.get().load(movie?.image_mini).into(movieSlider)
 
         val sessionAdapter = SessionAdapter(movie?.grid)
         val layoutManager = LinearLayoutManager(this)
