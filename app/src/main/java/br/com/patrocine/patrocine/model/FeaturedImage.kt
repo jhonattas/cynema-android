@@ -13,5 +13,7 @@ class FeaturedImage : Serializable {
     var active: Int? = null
     @SerializedName("url")
     var url: String? = null
+    @SerializedName("description")
+    var description: String? = null
 
 }

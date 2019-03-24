@@ -114,9 +114,8 @@ class MovieFragment : Fragment() {
                         val textSliderView = TextSliderView(context)
                         Log.e("ADICIONEI", featuredImage.image)
                         textSliderView
-                                .description(index.toString())
+                                .description(featuredImage.description)
                                 .image(featuredImage.image)
-                                //.image("https://patrocine.s3.us-east-2.amazonaws.com/slides/1543671914563_slide.png")
                         topHeader!!.addSlider(textSliderView)
                     }
                 }
