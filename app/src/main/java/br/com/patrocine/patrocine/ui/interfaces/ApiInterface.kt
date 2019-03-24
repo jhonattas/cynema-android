@@ -1,5 +1,6 @@
 package br.com.patrocine.patrocine.ui.interfaces
 
+import br.com.patrocine.patrocine.model.Layout
 import br.com.patrocine.patrocine.model.Movie
 import br.com.patrocine.patrocine.model.Partners
 import br.com.patrocine.patrocine.model.response.FeaturedImagesResponse
@@ -25,6 +26,9 @@ interface ApiInterface {
 
     @GET("v1/movies_soon")
     fun allMoviesSoon(): Call<ArrayList<Movie>>
+
+    @GET("v1/layout/config")
+    fun config(): Call<Layout>
 
     @GET("v1/layout/slides")
     fun featuredImages(): Call<FeaturedImagesResponse>

@@ -95,6 +95,9 @@
     <string name="title_activity_menu">MenuActivity</string>
 
     <string name="title_activity_web_destaque">WebDestaqueActivity</string>
+    <string name="title_activity_movie_details_tabbed">MovieDetailsTabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 
 </resources>

@@ -8,13 +8,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import br.com.patrocine.patrocine.R
+import br.com.patrocine.patrocine.model.Layout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_web_destaque.*
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 class WebDestaqueActivity : AppCompatActivity() {
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
@@ -34,9 +31,12 @@ class WebDestaqueActivity : AppCompatActivity() {
         var fullscreenContent = ImageView(this)
         fullscreenContent = findViewById(R.id.fullscreen_content)
 
+        val b = intent.extras
+        val layout = b!!.getSerializable("layout") as Layout
+
         Picasso
                 .get()
-                .load("https://s3.us-east-2.amazonaws.com/patrocine/web/destaque.jpg")
+                .load(layout.featured)
                 .into(fullscreenContent)
 
         var dummyButton = findViewById<Button>(R.id.dummy_button)

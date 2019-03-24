@@ -10,13 +10,11 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.patrocine.patrocine.R
-import br.com.patrocine.patrocine.model.FeaturedImage
 import br.com.patrocine.patrocine.model.Movie
 import br.com.patrocine.patrocine.model.SectionData
 import br.com.patrocine.patrocine.model.response.FeaturedImagesResponse
@@ -25,12 +23,8 @@ import br.com.patrocine.patrocine.ui.adapters.MovieAdapter
 import br.com.patrocine.patrocine.ui.adapters.RecyclerViewDataAdapter
 import br.com.patrocine.patrocine.ui.interfaces.ApiInterface
 import br.com.patrocine.patrocine.ui.interfaces.OnFragmentInteractionListener
-import com.bumptech.glide.Glide
 import com.daimajia.slider.library.SliderLayout
-import com.daimajia.slider.library.SliderTypes.BaseSliderView
 import com.daimajia.slider.library.SliderTypes.TextSliderView
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_movie.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

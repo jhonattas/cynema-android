@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/background"
-    tools:context=".ui.activities.MovieDetailsActivity">
+    tools:context=".ui.activities.MovieDetailsOldActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
