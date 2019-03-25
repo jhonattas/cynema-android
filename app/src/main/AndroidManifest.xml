@@ -17,7 +17,11 @@
         <activity
             android:name=".ui.activities.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.patrocine.patrocine.ui.activities.MainActivity" />
+        </activity>
         <activity
             android:name=".ui.activities.MenuActivity"
             android:label="@string/title_activity_menu"
@@ -40,7 +44,6 @@
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
