@@ -8,18 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.patrocine.patrocine.R;
 import br.com.patrocine.patrocine.model.Grid;
-import br.com.patrocine.patrocine.model.Location;
-import br.com.patrocine.patrocine.model.Session;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 
