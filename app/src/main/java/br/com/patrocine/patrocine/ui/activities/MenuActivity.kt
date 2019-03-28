@@ -177,7 +177,7 @@ class MenuActivity : AppCompatActivity(),
 
     override fun onFragmentInteraction(obj: Any) {
         val movie = obj as Movie
-        val i = Intent(this, MovieDetailsActivity::class.java)
+        val i = Intent(this, MovieDetailsOldActivity::class.java)
         val b = Bundle()
         b.putSerializable("movie", movie)
         i.putExtras(b)
