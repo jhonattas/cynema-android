@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun run() {
         try {
-            this.adUrl = PARTNERS.get(adCount).image
+            this.adUrl = PARTNERS[adCount].image
             loadImage()
             if(this.adCount == PARTNERS.size)
                 this.adCount = 0

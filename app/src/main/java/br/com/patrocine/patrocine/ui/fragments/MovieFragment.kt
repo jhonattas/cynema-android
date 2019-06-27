@@ -1,8 +1,6 @@
 package br.com.patrocine.patrocine.ui.fragments
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -47,21 +45,20 @@ class MovieFragment : Fragment() {
     private var adapter: RecyclerViewDataAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-// Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_movie, container, false);
+        val view: View = inflater.inflate(R.layout.fragment_movie, container, false)
 
-        allSampleData = ArrayList<SectionData>()
+        allSampleData = ArrayList()
 
-        var my_recycler_view: RecyclerView = view.findViewById(R.id.myRecyclerView);
+        val myRecyclerView: RecyclerView = view.findViewById(R.id.myRecyclerView)
 
-        my_recycler_view.setHasFixedSize(true);
-        adapter = RecyclerViewDataAdapter(view.context, allSampleData, mListener!!);
-        my_recycler_view.setLayoutManager(LinearLayoutManager(view.context, RecyclerView.VERTICAL, false));
-        my_recycler_view.setAdapter(adapter);
+        myRecyclerView.setHasFixedSize(true)
+        adapter = RecyclerViewDataAdapter(view.context, allSampleData, mListener!!)
+        myRecyclerView.setLayoutManager(LinearLayoutManager(view.context, RecyclerView.VERTICAL, false));
+        myRecyclerView.setAdapter(adapter)
 
-        itemsList = ArrayList<Movie>();
-        mAdapter = MovieAdapter(view.context, itemsList!!, mListener);
-        itemsListSoon = ArrayList<Movie>()
+        itemsList = ArrayList()
+        mAdapter = MovieAdapter(view.context, itemsList!!, mListener)
+        itemsListSoon = ArrayList()
         populateMovies()
 
         topHeader = view.findViewById(R.id.topHeader)

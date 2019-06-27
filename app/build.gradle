@@ -9,12 +9,12 @@ android {
     defaultConfig {
 
         applicationId "br.com.patrocine.patrocine"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 46
         versionName "4.0.0"
         buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
-
+        multiDexEnabled true
     }
 
     flavorDimensions "default"
@@ -103,8 +103,8 @@ dependencies {
     // use -ktx for Kotlin
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.synnapps:carouselview:0.1.5"
@@ -112,8 +112,12 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
+    implementation "com.github.devlight:infinitecycleviewpager:1.0.2"
+
     implementation 'com.nineoldandroids:library:2.4.0'
     api project(':slider')
+
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation 'com.github.skydoves:preferenceroom:1.1.4'
     annotationProcessor 'com.github.skydoves:preferenceroom-processor:1.1.4'
