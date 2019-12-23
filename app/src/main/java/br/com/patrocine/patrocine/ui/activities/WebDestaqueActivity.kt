@@ -50,7 +50,7 @@ class WebDestaqueActivity : AppCompatActivity() {
         supportActionBar?.show()
         fullscreen_content_controls.visibility = View.VISIBLE
     }
-    private var mVisible: Boolean = false
+    private var mVisible: Boolean = true
     private val mHideRunnable = Runnable { hide() }
     /**
      * Touch listener to use for in-layout UI controls to delay hiding the
@@ -91,11 +91,7 @@ class WebDestaqueActivity : AppCompatActivity() {
     }
 
     private fun toggle() {
-        if (mVisible) {
-            hide()
-        } else {
-            show()
-        }
+        show()
     }
 
     private fun hide() {
@@ -128,10 +124,11 @@ class WebDestaqueActivity : AppCompatActivity() {
     private fun delayedHide(delayMillis: Int) {
         mHideHandler.removeCallbacks(mHideRunnable)
         mHideHandler.postDelayed(mHideRunnable, delayMillis.toLong())
+        show()
     }
 
     companion object {
-        private val AUTO_HIDE = true
+        private val AUTO_HIDE = false
         private val AUTO_HIDE_DELAY_MILLIS = 3000
         private val UI_ANIMATION_DELAY = 300
     }

@@ -28,7 +28,7 @@
             android:id="@+id/moviesBig"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:icvp_interpolator="..."
+
             app:icvp_center_page_scale_offset="30dp"
             app:icvp_max_page_scale="0.8"
             app:icvp_medium_scaled="true"
