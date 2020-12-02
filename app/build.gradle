@@ -4,16 +4,16 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
     defaultConfig {
 
         applicationId "br.com.patrocine.patrocine"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 49
         versionName "4.0.0"
-        buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
+        buildConfigField("String", "api_server", "\"https://api.cynema.soucriador.com.br/\"")
         multiDexEnabled true
     }
 
@@ -24,24 +24,24 @@ android {
         soucriador {
             applicationId "br.com.patrocine.patrocine"
             dimension "default"
-            buildConfigField("String", "api_server", "\"https://api.patrocine.com.br/\"")
-            resValue("string", "app_name", "Patrocine")
+            buildConfigField("String", "api_server", "\"https://api.cynema.soucriador.com.br/\"")
+            resValue("string", "app_name", "CYnema")
             buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\", \"Fidelidade\", \"Promoções\", \"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
             buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Fidelidade\"}, {\"3\", \"Promoções\"}, {\"4\", \"Bomboniere\"}, {\"5\", \"Perguntas\"}, {\"6\", \"Localização\"},  {\"7\", \"Sair\"} }")
-            resValue "string", "hotsite", "www.patrocine.com.br"
-            resValue "string", "fonefixo", "3431990422"
-            resValue "string", "fonefixoddd", "(34) 3199-0422"
+            resValue "string", "hotsite", "www.soucriador.com.br/cynema"
+            resValue "string", "fonefixo", ""
+            resValue "string", "fonefixoddd", ""
             resValue "string", "whatsapp", "1"
             resValue "string", "whatsappddd", "1"
-            resValue "string", "endereco", "Av. João Alves do Nascimento, 2264 - Centro, Patrocínio - MG"
-            resValue "string", "geoLocation", "https://www.google.com/maps/place/PatroCine+Cinema/@-18.935881,-46.9924737,17z/data=!4m13!1m7!3m6!1s0x0:0x0!2zMTjCsDU2JzA5LjIiUyA0NsKwNTknMzIuOSJX!3b1!8m2!3d-18.935881!4d-46.9924737!3m4!1s0x0:0xe6def686bf60c056!8m2!3d-18.9371397!4d-46.9905417"
+            resValue "string", "endereco", ""
+            resValue "string", "geoLocation", ""
         }
 
     }
 
     signingConfigs {
         main {
-            storeFile file("../keyz/patrocine.jks")
+            storeFile file("../keyz/cynema.jks")
             storePassword "#Jhoouh366"
             keyAlias = 'key0'
             keyPassword "#Jhoouh366"
