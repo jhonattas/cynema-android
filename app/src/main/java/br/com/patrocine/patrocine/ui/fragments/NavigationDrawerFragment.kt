@@ -158,13 +158,6 @@ class NavigationDrawerFragment : Fragment() {
         outState.putInt(STATE_SELECTED_POSITION, mCurrentSelectedPosition)
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-        // Forward the new configuration the drawer toggle component.
-        mDrawerToggle!!.onConfigurationChanged(newConfig)
-    }
-
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (mDrawerToggle!!.onOptionsItemSelected(item)) {
             Toast.makeText(activity, "Example action.", Toast.LENGTH_SHORT).show()

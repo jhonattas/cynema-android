@@ -103,7 +103,7 @@ class MovieFragment : Fragment() {
 
                     FEATURED_IMAGES!!.images?.forEachIndexed { index, featuredImage ->
                         val textSliderView = TextSliderView(context)
-                        Log.e("ADICIONEI", featuredImage.image)
+                        Log.e("ADICIONEI", featuredImage.image.toString())
                         textSliderView
                                 .description(featuredImage.description)
                                 .image(featuredImage.image)
