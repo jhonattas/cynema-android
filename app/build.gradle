@@ -61,6 +61,7 @@ android {
             resValue("string", "admob_id", "ca-app-pub-3940256099942544/6300978111")
         }
     }
+    namespace 'br.com.patrocine.patrocine'
 
 }
 
