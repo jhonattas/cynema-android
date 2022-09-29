@@ -22,9 +22,9 @@ android {
     productFlavors {
 
         soucriador {
-            applicationId "br.com.patrocine.patrocine"
+            applicationId "com.soucriador.cynema"
             dimension "default"
-            buildConfigField("String", "api_server", "\"https://api.cynema.soucriador.com.br/\"")
+            buildConfigField("String", "api_server", "\"https://api.soucriador.com.br/\"")
             resValue("string", "app_name", "CYnema")
             buildConfigField("String[]", "navigation_menu", "{\"Em Cartaz\", \"Ingressos\", \"Fidelidade\", \"Promoções\", \"Bomboniere\", \"Perguntas\", \"Localização\",\"Sair\"}")
             buildConfigField("String[][]", "navigation_map", "{{\"0\", \"Em Cartaz\"}, {\"1\", \"Ingressos\"}, {\"2\", \"Fidelidade\"}, {\"3\", \"Promoções\"}, {\"4\", \"Bomboniere\"}, {\"5\", \"Perguntas\"}, {\"6\", \"Localização\"},  {\"7\", \"Sair\"} }")

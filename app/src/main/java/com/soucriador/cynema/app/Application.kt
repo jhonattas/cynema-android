@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.app
+package com.soucriador.cynema.app
 
 import android.app.Application
 

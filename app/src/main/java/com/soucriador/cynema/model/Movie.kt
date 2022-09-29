@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.model
+package com.soucriador.cynema.model
 
 import android.os.Parcel
 import android.os.Parcelable

@@ -1,6 +1,6 @@
-package br.com.soucriador.cynema.cynema.rest;
+package com.soucriador.cynema.rest;
 
-import br.com.patrocine.cynema.BuildConfig;
+import com.soucriador.cynema.BuildConfig;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
