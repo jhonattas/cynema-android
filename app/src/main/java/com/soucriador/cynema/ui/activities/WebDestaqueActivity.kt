@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Layout
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Layout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_web_destaque.*
 

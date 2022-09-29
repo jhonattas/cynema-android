@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.fragments;
+package com.soucriador.cynema.ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.fragment.app.Fragment;
-import br.com.patrocine.cynema.R;
+import com.soucriador.cynema.R;
 
 public class TicketsFragment extends Fragment {
 

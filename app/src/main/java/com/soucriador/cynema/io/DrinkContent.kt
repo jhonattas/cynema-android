@@ -1,6 +1,6 @@
-package br.com.soucriador.cynema.cynema.io
+package com.soucriador.cynema.io
 
-import br.com.patrocine.cynema.model.Drink
+import com.soucriador.cynema.model.Drink
 import java.util.ArrayList
 import java.util.HashMap
 

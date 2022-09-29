@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities.ui.main
+package com.soucriador.cynema.ui.activities.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import br.com.patrocine.cynema.R
+import com.soucriador.cynema.R
 
 /**
  * A placeholder fragment containing a simple view.

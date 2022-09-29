@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.fragments
+package com.soucriador.cynema.ui.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -12,15 +12,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Movie
-import br.com.patrocine.cynema.model.SectionData
-import br.com.patrocine.cynema.model.response.FeaturedImagesResponse
-import br.com.soucriador.cynema.cynema.rest.ApiClient
-import br.com.patrocine.cynema.ui.adapters.MovieAdapter
-import br.com.patrocine.cynema.ui.adapters.RecyclerViewDataAdapter
-import br.com.patrocine.cynema.ui.interfaces.ApiInterface
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Movie
+import com.soucriador.cynema.model.SectionData
+import com.soucriador.cynema.model.response.FeaturedImagesResponse
+import com.soucriador.cynema.rest.ApiClient
+import com.soucriador.cynema.ui.adapters.MovieAdapter
+import com.soucriador.cynema.ui.adapters.RecyclerViewDataAdapter
+import com.soucriador.cynema.ui.interfaces.ApiInterface
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import com.daimajia.slider.library.SliderLayout
 import com.daimajia.slider.library.SliderTypes.TextSliderView
 import retrofit2.Call
@@ -146,7 +146,7 @@ class MovieFragment : Fragment() {
     }
 
     private fun populateMovies() {
-        val apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        val apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.allMovies()
         call.enqueue(object : Callback<ArrayList<Movie>> {
             override fun onResponse(call: Call<ArrayList<Movie>>, response: Response<ArrayList<Movie>>) {
@@ -192,7 +192,7 @@ class MovieFragment : Fragment() {
         private lateinit var apiService: ApiInterface
 
         fun newInstance(): MovieFragment {
-            apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+            apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
             return MovieFragment()
         }
     }

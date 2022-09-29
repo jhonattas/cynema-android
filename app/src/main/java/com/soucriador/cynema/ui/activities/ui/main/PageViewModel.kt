@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities.ui.main
+package com.soucriador.cynema.ui.activities.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

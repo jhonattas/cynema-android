@@ -1,15 +1,15 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
-import br.com.patrocine.cynema.BuildConfig
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Layout
-import br.com.soucriador.cynema.cynema.rest.ApiClient
-import br.com.patrocine.cynema.ui.interfaces.ApiInterface
+import com.soucriador.cynema.BuildConfig
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Layout
+import com.soucriador.cynema.rest.ApiClient
+import com.soucriador.cynema.ui.interfaces.ApiInterface
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import retrofit2.Call
 import retrofit2.Response
@@ -51,7 +51,7 @@ class SplashScreenActivity : Activity(), Runnable {
     }
 
     fun fetchConfig() {
-        apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.config()
         call.enqueue(object : retrofit2.Callback<Layout> {
             override fun onResponse(call: Call<Layout>, response: Response<Layout>) {

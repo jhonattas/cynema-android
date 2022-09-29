@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.items;
+package com.soucriador.cynema.ui.items;
 
 import android.graphics.Rect;
 import android.view.View;

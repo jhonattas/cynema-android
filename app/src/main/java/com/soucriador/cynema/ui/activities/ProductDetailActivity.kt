@@ -1,12 +1,12 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Pizza
-import br.com.patrocine.cynema.model.Snack
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Pizza
+import com.soucriador.cynema.model.Snack
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 

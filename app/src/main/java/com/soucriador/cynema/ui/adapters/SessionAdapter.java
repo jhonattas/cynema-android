@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.adapters;
+package com.soucriador.cynema.ui.adapters;
 
 import android.graphics.Typeface;
 import android.util.Log;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import androidx.recyclerview.widget.RecyclerView;
-import br.com.patrocine.cynema.R;
-import br.com.patrocine.cynema.model.Grid;
+import com.soucriador.cynema.R;
+import com.soucriador.cynema.model.Grid;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 

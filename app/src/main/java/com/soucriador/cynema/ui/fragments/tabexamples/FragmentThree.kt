@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.fragments.tabexamples
+package com.soucriador.cynema.ui.fragments.tabexamples
 
 import android.content.Context
 import android.net.Uri
@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import br.com.patrocine.cynema.R
+import com.soucriador.cynema.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

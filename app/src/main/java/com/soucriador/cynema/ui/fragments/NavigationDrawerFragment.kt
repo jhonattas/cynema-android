@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.fragments
+package com.soucriador.cynema.ui.fragments
 
 import android.app.ActionBar
 import android.content.Context
@@ -16,9 +16,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import br.com.patrocine.cynema.BuildConfig
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.ui.interfaces.NavigationDrawerCallbacks
+import com.soucriador.cynema.BuildConfig
+import com.soucriador.cynema.R
+import com.soucriador.cynema.ui.interfaces.NavigationDrawerCallbacks
 
 
 class NavigationDrawerFragment : Fragment() {

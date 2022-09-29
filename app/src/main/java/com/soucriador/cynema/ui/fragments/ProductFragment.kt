@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.fragments
+package com.soucriador.cynema.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,16 +10,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Pizza
-import br.com.patrocine.cynema.model.Snack
-import br.com.patrocine.cynema.model.response.PizzaResponse
-import br.com.patrocine.cynema.model.response.SnackResponse
-import br.com.soucriador.cynema.cynema.rest.ApiClient
-import br.com.patrocine.cynema.ui.adapters.PizzaDataAdapter
-import br.com.soucriador.cynema.cynema.ui.adapters.SnackDataAdapter
-import br.com.patrocine.cynema.ui.interfaces.ApiInterface
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Pizza
+import com.soucriador.cynema.model.Snack
+import com.soucriador.cynema.model.response.PizzaResponse
+import com.soucriador.cynema.model.response.SnackResponse
+import com.soucriador.cynema.rest.ApiClient
+import com.soucriador.cynema.ui.adapters.PizzaDataAdapter
+import com.soucriador.cynema.ui.adapters.SnackDataAdapter
+import com.soucriador.cynema.ui.interfaces.ApiInterface
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +32,7 @@ class ProductFragment : Fragment() {
 
     private var mListView: RecyclerView? = null
     private var pizzaAdapter: PizzaDataAdapter? = null
-    private var snacksAdapter: br.com.soucriador.cynema.cynema.ui.adapters.SnackDataAdapter? = null
+    private var snacksAdapter: com.soucriador.cynema.ui.adapters.SnackDataAdapter? = null
     private var PIZZAS: ArrayList<Pizza>? = ArrayList()
     private var SNACKS: ArrayList<Snack>? = ArrayList()
     private var category: String? = null
@@ -73,7 +73,7 @@ class ProductFragment : Fragment() {
     }
 
     private fun populatePizzas() {
-        val apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        val apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.allPizzas()
         call.enqueue(object : Callback<PizzaResponse> {
             override fun onResponse(call: Call<PizzaResponse>, response: Response<PizzaResponse>) {
@@ -92,7 +92,7 @@ class ProductFragment : Fragment() {
     }
 
     private fun populateSnacks() {
-        val apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        val apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.allSnacks()
         call.enqueue(object : Callback<SnackResponse> {
             override fun onResponse(call: Call<SnackResponse>, response: Response<SnackResponse>) {
@@ -126,7 +126,7 @@ class ProductFragment : Fragment() {
         // lanches
         if (category == "LANCHES") {
             snacksAdapter =
-                br.com.soucriador.cynema.cynema.ui.adapters.SnackDataAdapter(SNACKS, listner)
+                com.soucriador.cynema.ui.adapters.SnackDataAdapter(SNACKS, listner)
             mListView!!.adapter = snacksAdapter
         }
     }

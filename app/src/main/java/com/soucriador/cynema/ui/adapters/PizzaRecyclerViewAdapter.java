@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.adapters;
+package com.soucriador.cynema.ui.adapters;
 
 
 public class PizzaRecyclerViewAdapter {

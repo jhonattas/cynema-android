@@ -1,11 +1,11 @@
-package br.com.soucriador.cynema.cynema.ui.interfaces
+package com.soucriador.cynema.ui.interfaces
 
-import br.com.patrocine.cynema.model.Layout
-import br.com.patrocine.cynema.model.Movie
-import br.com.patrocine.cynema.model.Partners
-import br.com.patrocine.cynema.model.response.FeaturedImagesResponse
-import br.com.patrocine.cynema.model.response.PizzaResponse
-import br.com.patrocine.cynema.model.response.SnackResponse
+import com.soucriador.cynema.model.Layout
+import com.soucriador.cynema.model.Movie
+import com.soucriador.cynema.model.Partners
+import com.soucriador.cynema.model.response.FeaturedImagesResponse
+import com.soucriador.cynema.model.response.PizzaResponse
+import com.soucriador.cynema.model.response.SnackResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

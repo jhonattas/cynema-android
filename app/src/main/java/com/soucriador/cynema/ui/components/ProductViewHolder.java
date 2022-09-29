@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.components;
+package com.soucriador.cynema.ui.components;
 
 import android.view.View;
 import android.widget.ImageView;

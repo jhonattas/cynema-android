@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Movie
-import br.com.soucriador.cynema.cynema.ui.fragments.MapFragment
-import br.com.patrocine.cynema.ui.fragments.MovieFragment
-import br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Movie
+import com.soucriador.cynema.ui.fragments.MapFragment
+import com.soucriador.cynema.ui.fragments.MovieFragment
+import com.soucriador.cynema.ui.fragments.OnlineFragment
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -116,7 +116,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.title_tickets)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("tickets"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("tickets"))
                 .commit()
     }
 
@@ -124,7 +124,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.fidelidade)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("fidelidade"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("fidelidade"))
                 .commit()
     }
 
@@ -132,7 +132,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.promotions)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("promocoes"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("promocoes"))
                 .commit()
     }
 
@@ -140,7 +140,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.title_bomboniere)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("bomboniere"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("bomboniere"))
                 .commit()
     }
 
@@ -148,7 +148,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.title_faq)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("faq"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("faq"))
                 .commit()
     }
 
@@ -156,7 +156,7 @@ class MenuActivity : AppCompatActivity(),
         title = getString(R.string.title_location)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.MapFragment.newInstance())
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.MapFragment.newInstance())
                 .commit()
     }
 

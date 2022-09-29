@@ -1,6 +1,6 @@
-package br.com.soucriador.cynema.cynema.ui.interfaces
+package com.soucriador.cynema.ui.interfaces
 
-import br.com.patrocine.cynema.model.Movie
+import com.soucriador.cynema.model.Movie
 
 interface OnMovieClickListener {
 

@@ -1,10 +1,10 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import br.com.patrocine.cynema.R
+import com.soucriador.cynema.R
 
 class AboutActivity : AppCompatActivity() {
 

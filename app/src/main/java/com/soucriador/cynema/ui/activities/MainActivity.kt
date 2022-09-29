@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -14,18 +14,18 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.GravityCompat
-import br.com.patrocine.cynema.R
-import br.com.soucriador.cynema.cynema.io.Config
-import br.com.patrocine.cynema.model.Movie
-import br.com.patrocine.cynema.model.Partners
-import br.com.soucriador.cynema.cynema.rest.ApiClient
-import br.com.soucriador.cynema.cynema.ui.fragments.MapFragment
-import br.com.patrocine.cynema.ui.fragments.MovieFragment
-import br.com.patrocine.cynema.ui.fragments.NavigationDrawerFragment
-import br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment
-import br.com.patrocine.cynema.ui.interfaces.ApiInterface
-import br.com.patrocine.cynema.ui.interfaces.NavigationDrawerCallbacks
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.io.Config
+import com.soucriador.cynema.model.Movie
+import com.soucriador.cynema.model.Partners
+import com.soucriador.cynema.rest.ApiClient
+import com.soucriador.cynema.ui.fragments.MapFragment
+import com.soucriador.cynema.ui.fragments.MovieFragment
+import com.soucriador.cynema.ui.fragments.NavigationDrawerFragment
+import com.soucriador.cynema.ui.fragments.OnlineFragment
+import com.soucriador.cynema.ui.interfaces.ApiInterface
+import com.soucriador.cynema.ui.interfaces.NavigationDrawerCallbacks
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.messaging.FirebaseMessaging
 import com.squareup.picasso.Picasso
@@ -71,14 +71,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             override fun onReceive(context: Context, intent: Intent) {
 
                 // checking for type intent filter
-                if (intent.action == br.com.soucriador.cynema.cynema.io.Config.REGISTRATION_COMPLETE) {
+                if (intent.action == com.soucriador.cynema.io.Config.REGISTRATION_COMPLETE) {
                     // gcm successfully registered
                     // now subscribe to `global` topic to receive app wide notifications
-                    FirebaseMessaging.getInstance().subscribeToTopic(br.com.soucriador.cynema.cynema.io.Config.TOPIC_GLOBAL)
+                    FirebaseMessaging.getInstance().subscribeToTopic(com.soucriador.cynema.io.Config.TOPIC_GLOBAL)
 
                     //displayFirebaseRegId();
 
-                } else if (intent.action == br.com.soucriador.cynema.cynema.io.Config.PUSH_NOTIFICATION) {
+                } else if (intent.action == com.soucriador.cynema.io.Config.PUSH_NOTIFICATION) {
                     // new push notification is received
 
                     val message = intent.getStringExtra("message")
@@ -187,7 +187,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fragmentManager = supportFragmentManager
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("tickets"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("tickets"))
                 .commit()
     }
 
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fragmentManager = supportFragmentManager
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("promocoes"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("promocoes"))
                 .commit()
     }
 
@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fragmentManager = supportFragmentManager
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("bomboniere"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("bomboniere"))
                 .commit()
     }
 
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fragmentManager = supportFragmentManager
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.OnlineFragment.newInstance("faq"))
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.OnlineFragment.newInstance("faq"))
                 .commit()
     }
 
@@ -220,7 +220,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fragmentManager = supportFragmentManager
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.container, br.com.soucriador.cynema.cynema.ui.fragments.MapFragment.newInstance())
+                .replace(R.id.container, com.soucriador.cynema.ui.fragments.MapFragment.newInstance())
                 .commit()
     }
 
@@ -257,7 +257,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun fetchPartners() {
-        val apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        val apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.allPartners()
         call.enqueue(object : Callback<ArrayList<Partners>> {
             override fun onResponse(call: Call<ArrayList<Partners>>, response: Response<ArrayList<Partners>>) {

@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.content.Context
 import android.content.Intent
@@ -13,8 +13,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import br.com.patrocine.cynema.R
-import br.com.soucriador.cynema.cynema.io.PrefManager
+import com.soucriador.cynema.R
+import com.soucriador.cynema.io.PrefManager
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class WelcomeActivity : AppCompatActivity() {
     private var myViewPagerAdapter: MyViewPagerAdapter? = null
     private var dots: Array<TextView?>? = null
     private var layouts: IntArray? = null
-    private var prefManager: br.com.soucriador.cynema.cynema.io.PrefManager? = null
+    private var prefManager: com.soucriador.cynema.io.PrefManager? = null
 
     //	viewpager change listener
     internal var viewPagerPageChangeListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
@@ -53,7 +53,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Checking for first time launch - before calling setContentView()
-        prefManager = br.com.soucriador.cynema.cynema.io.PrefManager(this)
+        prefManager = com.soucriador.cynema.io.PrefManager(this)
         /* if (!prefManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();

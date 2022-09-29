@@ -1,10 +1,10 @@
-package br.com.soucriador.cynema.cynema.ui.activities.ui.main
+package com.soucriador.cynema.ui.activities.ui.main
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import br.com.patrocine.cynema.R
+import com.soucriador.cynema.R
 
 private val TAB_TITLES = arrayOf(
         R.string.tab_text_1,

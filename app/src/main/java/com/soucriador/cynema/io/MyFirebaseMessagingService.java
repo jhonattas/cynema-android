@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.io;
+package com.soucriador.cynema.io;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import br.com.patrocine.cynema.ui.activities.MainActivity;
-import br.com.soucriador.cynema.cynema.ui.activities.MainActivity;
+import com.soucriador.cynema.ui.activities.MainActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

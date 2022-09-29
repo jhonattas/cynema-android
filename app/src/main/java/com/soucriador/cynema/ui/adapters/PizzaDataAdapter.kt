@@ -1,13 +1,13 @@
-package br.com.soucriador.cynema.cynema.ui.adapters
+package com.soucriador.cynema.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Pizza
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Pizza
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import java.util.ArrayList
 
 

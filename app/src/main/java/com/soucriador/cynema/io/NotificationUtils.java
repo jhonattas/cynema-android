@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.io;
+package com.soucriador.cynema.io;
 
 import android.app.ActivityManager;
 import android.app.Notification;
@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 import androidx.core.app.NotificationCompat;
-import br.com.patrocine.cynema.R;
+import com.soucriador.cynema.R;
 
 public class NotificationUtils {
 

@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.adapters
+package com.soucriador.cynema.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.SectionData
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.SectionData
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener
 import java.util.ArrayList
 
 class RecyclerViewDataAdapter(val mContext: Context, val dataList: ArrayList<SectionData>?, internal var listener: OnFragmentInteractionListener) : RecyclerView.Adapter<RecyclerViewDataAdapter.ItemRowHolder>() {
@@ -28,7 +28,7 @@ class RecyclerViewDataAdapter(val mContext: Context, val dataList: ArrayList<Sec
         itemRowHolder.itemTitle.setText(sectionName)
 
         val itemListDataAdapter =
-            br.com.soucriador.cynema.cynema.ui.adapters.SectionListDataAdapter(
+            com.soucriador.cynema.ui.adapters.SectionListDataAdapter(
                 mContext,
                 singleSectionItems,
                 listener

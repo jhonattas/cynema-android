@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.io;
+package com.soucriador.cynema.io;
 
 public class Config {
 

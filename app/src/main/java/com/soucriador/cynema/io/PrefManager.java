@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.io;
+package com.soucriador.cynema.io;
 
 import android.content.Context;
 import android.content.SharedPreferences;

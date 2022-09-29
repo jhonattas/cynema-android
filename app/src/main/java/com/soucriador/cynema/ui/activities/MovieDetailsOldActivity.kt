@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.activities
+package com.soucriador.cynema.ui.activities
 
 import android.content.Intent
 import android.net.Uri
@@ -13,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.patrocine.cynema.R
-import br.com.patrocine.cynema.model.Movie
-import br.com.soucriador.cynema.cynema.rest.ApiClient
-import br.com.soucriador.cynema.cynema.ui.adapters.SessionAdapter
-import br.com.patrocine.cynema.ui.interfaces.ApiInterface
+import com.soucriador.cynema.R
+import com.soucriador.cynema.model.Movie
+import com.soucriador.cynema.rest.ApiClient
+import com.soucriador.cynema.ui.adapters.SessionAdapter
+import com.soucriador.cynema.ui.interfaces.ApiInterface
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 import retrofit2.Call
@@ -59,7 +59,7 @@ class MovieDetailsOldActivity : AppCompatActivity() {
         Log.e("AQUI ", movie.toString())
         Picasso.get().load(movie?.image_mini).into(movieSlider)
 
-        val sessionAdapter = br.com.soucriador.cynema.cynema.ui.adapters.SessionAdapter(movie?.grid)
+        val sessionAdapter = com.soucriador.cynema.ui.adapters.SessionAdapter(movie?.grid)
         val layoutManager = LinearLayoutManager(this)
         sessions?.layoutManager = layoutManager
         sessions?.adapter = sessionAdapter
@@ -85,7 +85,7 @@ class MovieDetailsOldActivity : AppCompatActivity() {
     }
 
     fun fetchMovieDetails() {
-        apiService = br.com.soucriador.cynema.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
+        apiService = com.soucriador.cynema.rest.ApiClient.getClient().create(ApiInterface::class.java)
         val call = apiService.oneMovie(movie?.title!!)
         call.enqueue(object : retrofit2.Callback<Movie> {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {

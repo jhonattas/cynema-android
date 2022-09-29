@@ -13,37 +13,37 @@
         android:protectionLevel="signature"/>
 
     <application
-        android:name="br.com.patrocine.cynema.br.com.soucriador.cynema.cynema.app.Application"
+        android:name="com.soucriador.cynema.com.soucriador.cynema.app.Application"
         android:allowBackup="true"
         android:icon="@mipmap/icone"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icone_round"
         android:theme="@style/AppTheme">
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.MovieDetailsActivity"
+            android:name="com.soucriador.cynema.ui.activities.MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.patrocine.cynema.ui.activities.MainActivity" />
+                android:value="com.soucriador.cynema.ui.activities.MainActivity" />
         </activity>
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.MenuActivity"
+            android:name="com.soucriador.cynema.ui.activities.MenuActivity"
             android:label="@string/title_activity_menu"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.WelcomeActivity"
+            android:name="com.soucriador.cynema.ui.activities.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.MainActivity"
+            android:name="com.soucriador.cynema.ui.activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.SplashScreenActivity"
+            android:name="com.soucriador.cynema.ui.activities.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme">
@@ -53,37 +53,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.AboutActivity"
+            android:name="com.soucriador.cynema.ui.activities.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName="br.com.patrocine.cynema.ui.activities.MainActivity"
+            android:parentActivityName="com.soucriador.cynema.ui.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.ProductDetailActivity"
+            android:name="com.soucriador.cynema.ui.activities.ProductDetailActivity"
             android:label="@string/title_activity_product_detail"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.MovieDetailsOldActivity"
+            android:name="com.soucriador.cynema.ui.activities.MovieDetailsOldActivity"
             android:label="@string/title_activity_movie_details"
-            android:parentActivityName="br.com.patrocine.cynema.ui.activities.MainActivity"
+            android:parentActivityName="com.soucriador.cynema.ui.activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.patrocine.cynema.ui.activities.MainActivity" />
+                android:value="com.soucriador.cynema.ui.activities.MainActivity" />
         </activity> <!-- Firebase Notifications -->
-        <service android:name="br.com.patrocine.cynema.br.com.soucriador.cynema.cynema.io.MyFirebaseMessagingService">
+        <service android:name="com.soucriador.cynema.com.soucriador.cynema.io.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="br.com.patrocine.cynema.br.com.soucriador.cynema.cynema.io.MyFirebaseInstanceIDService">
+        <service android:name="com.soucriador.cynema.com.soucriador.cynema.io.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
         <activity
-            android:name="br.com.patrocine.cynema.ui.activities.WebDestaqueActivity"
+            android:name="com.soucriador.cynema.ui.activities.WebDestaqueActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />

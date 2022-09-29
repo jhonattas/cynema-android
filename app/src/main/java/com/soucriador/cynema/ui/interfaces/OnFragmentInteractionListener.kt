@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.interfaces
+package com.soucriador.cynema.ui.interfaces
 
 interface OnFragmentInteractionListener {
     fun onFragmentInteraction(obj: Any)

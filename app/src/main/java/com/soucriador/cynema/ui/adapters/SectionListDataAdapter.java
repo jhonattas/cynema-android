@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema.ui.adapters;
+package com.soucriador.cynema.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import androidx.recyclerview.widget.RecyclerView;
-import br.com.patrocine.cynema.R;
-import br.com.patrocine.cynema.model.Movie;
-import br.com.patrocine.cynema.ui.interfaces.OnFragmentInteractionListener;
-import br.com.soucriador.cynema.cynema.model.Movie;
-import br.com.soucriador.cynema.cynema.ui.interfaces.OnFragmentInteractionListener;
+import com.soucriador.cynema.R;
+import com.soucriador.cynema.model.Movie;
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener;
+import com.soucriador.cynema.model.Movie;
+import com.soucriador.cynema.ui.interfaces.OnFragmentInteractionListener;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
