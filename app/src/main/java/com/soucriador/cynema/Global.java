@@ -1,4 +1,4 @@
-package br.com.soucriador.cynema.cynema;
+package com.soucriador.cynema;
 
 public class Global {
 }
