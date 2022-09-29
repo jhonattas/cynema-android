@@ -1,1 +1,1 @@
-Front Android do projeto Cinema
+Front Android do projeto Cynema

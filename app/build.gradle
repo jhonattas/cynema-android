@@ -4,16 +4,16 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
 
-        applicationId "br.com.patrocine.patrocine"
+        applicationId "com.soucriador.cynema"
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 49
         versionName "4.0.0"
-        buildConfigField("String", "api_server", "\"https://api.cynema.soucriador.com.br/\"")
+        buildConfigField("String", "api_server", "\"https://api.soucriador.com.br/\"")
         multiDexEnabled true
     }
 
